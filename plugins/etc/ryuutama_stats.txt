@@ -1,0 +1,7 @@
+                                               ⭐ ⭐ [color=cyan][b]Stats[/b] ⭐ ⭐
+                [b]STR[/b] [eicon]{pj.STR2}_d{pj.STR2}[/eicon]      [b]DEX[/b] [eicon]{pj.DEX2}_d{pj.DEX2}[/eicon]      [b]INT[/b] [eicon]{pj.INT2}_d{pj.INT2}[/eicon]      [b]SPI[/b] [eicon]{pj.SPI2}_d{pj.SPI2}[/eicon]
+                HP: {o+pj.HP2+c}/{o+pj.HP+c}, MP: {o+pj.MP2+c}/{o+pj.MP+c}, Condition: {o+pj.Condition+c}, Fumble points: {o+pj.FP+c}, Initiative: {o+pj.INI+c}
+[sup]Checks: Condition [STR+SPI], Movement [STR+DEX], Direction [INT+INT], Camp and Initiative [DEX+INT][/sup]
+                                          ⭐ ⭐ [b]Equipment[/b] ⭐ ⭐
+{generateEquipment(pj)}Status effects: {o+pj.Conditions.toString()+c}
+[sup](Injury DEX-1, Poison STR-1, Sick ALL-1, Tired SPI-1, Muddled INT-1, Shock ALL-1)[/sup][/color]

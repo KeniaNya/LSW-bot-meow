@@ -1,0 +1,18 @@
+[color=green][b]Ballbusting dice![/b][/color]
+Before the game starts, discuss how much "health" each player has, from 25-50 depending on how long you wish the game to last.
+To use the bot, you can join a game using the command !bb_join followed by your desired health... Ex: [color=green][b]!bb_join 25[/b][/color]
+Flip a coin to determine who starts, 1d2 / 1=heads, 2=tails.
+Then roll a 1d10 and determine what you do to your opponents testies! To use the bot to roll, use the command [color=green][b]!bb_roll[/b][/color]
+If you want to end the game at any point, you can use the command [color=green][b]!bb_end[/b][/color]
+
+[color=yellow]Actions table:
+1. Slap - 1d4
+2. Squeeze - 1d6
+3. Punch - 1d8
+4. Kick - 1d10
+5. Step - 2d6
+6. Kneel - 3d4
+7. Tool (Crop, paddle, etc.) - 3d6
+8. Modification. (Tattoos, piercings, size, etc.) - 0 
+9. Roll again, do maximum damage or harder modification 
+10. Roll twice[/color]

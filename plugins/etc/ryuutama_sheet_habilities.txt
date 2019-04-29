@@ -1,0 +1,1 @@
+{Habilities[i].Hability} [/b][/color][color=cyan]({Habilities[i].Stats}): {Habilities[i].Effects}[/color][color={color1}][b]

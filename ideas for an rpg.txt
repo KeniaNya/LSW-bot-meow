@@ -1,0 +1,36 @@
+So, you start at the town (nobody on the black list)
+!routes
+-A, B, C
+!go A
+The bot will open up the room, send the link via PM to the person, and once they enter the room, kick them from the town
+Town remains open but if the player on A joins it, it gets kicked from A, meanwhile, everyone is blacklisted on A, except the player that used !go A
+
+When a player chooses to go to a room, the /openroom stays in place until that player joins
+if another player uses the !go command, they get added to the waiting list
+when a player enters the room, they get removed form the waiting list, when the waiting list is empty, the room gets /closeroom
+
+Other option is to always have the routes linked in the room
+and you can only enter those routes when you're in the proper room
+for example... if you are in town 1, you are white listed in A, B, C
+if you are in A, you're white listed in town 1, forest and cave, etc.
+
+
+Town 1
+	A
+		Forest
+		Cave
+	B
+		Town 2
+	C
+		Coast
+		Town 3
+			Ferry
+				Wildlands
+
+Steps:
+black list for rooms
+open and close the room (maybe not) I could even set up bans o_O, or just auto-kick people
+identify what user is in what room and the valid ways they can go
+
+{player} has entered the {place name}. Valid routes: {routeList}
+Specific commands for each room (have one big file but with flags... or many files, one for each room?)

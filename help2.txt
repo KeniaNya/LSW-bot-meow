@@ -1,0 +1,49 @@
+﻿
+[color=purple][b]For the full info, check my profile: [user]Bot Announcer[/user].[/b][/color]
+══════════════════════════════════════════════════════════════════════════════════════════
+                                                                 ⭐ ⭐ [color=purple][b]Lista de comandos[/b][/color] ⭐ ⭐
+══════════════════════════════════════════════════════════════════════════════════════════
+[color=purple]          [b]► Comandos referentes al personaje[/b][/color]
+[color=pink]                    [b]!register[/b][/color]: Registrarse en la base de datos.
+[color=pink]                    [b]!card[/b][/color]: Muestra la ficha publica de tu personaje.
+[color=pink]                    [b]!cardcode[/b][/color]: Muestra el codigo de la ficha publica de tu personaje para ponerlo en tu perfil.
+[color=pink]                    [b]!sheet[/b][/color]:: Muestra la ficha completa de tu personaje .
+[color=pink]                    [b]!sheetcode[/b][/color]: Muestra el codigo de la ficha completa de tu personaje para ponerlo en tu perfil.
+[color=pink]                    [b]!sheetcolors[/b][/color]: Establece un color para la hoja de tu personaje. Por ejemplo: [b]!sheetcolors green and yellow[/b]
+[color=pink]                    [b]!train {ATK/DEF} on {STAT}[/b][/color]: Incrementa en 1 el atributo seleccionado. Cuesta $10.00 y puedes tener un máximo de 5 sin objetos. Ejemplo: [b]!train attack on tits[/b]
+[color=pink]                    [b]!indulge {ATK/DEF} on {STAT}[/b][/color]: Disminuye en 1 el stat seleccionado. Obtienes $10.00 de vuelta y puedes tener un máximo de -3 En el stat sin objetos. Ejemplo: [b]!indulge attack on tits[/b]
+                    Opciones: attack/defense to lips/fingers/tits/sex/ass/feet. Ejemplo: [b]!train defense on ass[/b]
+[color=pink]                    [b]!sendmoney # to {PERSON}[/b][/color]: Envia # dinero a la persona seleccionada. Ejemplo: [b]!sendmoney 1 to Kenia Nya[/b]
+[color=pink]                    [b]!resetcharacter[/b][/color]: Elimina tus objetos y sus stats, dejándote con lo básico al igual que cuando te registras.
+
+[color=purple]          [b]► Comprar equipamiento[/b][/color]
+[color=pink]                    [b]!outfits[/b][/color]: Abre la tienda de ropa y atuendos.
+[color=pink]                    [b]!sextoys[/b][/color]: Abre el catálogo de sex-shop.
+[color=pink]                    [b]!accessories[/b][/color]: Abre la tienda de objetos generales.
+[color=pink]                    [b]!yunishop[/b][/color]: Una tienda abierta por un amigo especialista en objetos para sumisos.
+                    Pueden ser equipados independientemente de las categorías.
+[color=pink]                    [b]!buy {ITEM}[/b][/color]: Compra el objeto llamado {ITEM}, Si tienes suficiente dinero.
+[color=pink]                    [b]!sell {ITEM}[/b][/color]: Vende el objeto llamado {ITEM}, Y te da LA MITAD del coste original del producto.
+[color=pink]                    [b]!equip {ITEM}[/b][/color]: Equipa el objeto llamado {ITEM}, Si lo tienes en tu inventario
+                    Ejemplos: [b]!buy Ballgag[/b] / [b]!equip Small bikini[/b]
+
+[color=purple]          [b]► Combate[/b][/color]
+[color=pink]                    [b]!ready[/b][/color]: Te mete dentro del ring.
+[color=pink]                    [b]!readyshort[/b][/color]: Te mete en el ring con la mitad del aguante sexual (Util en peleas con handicap).
+[color=pink]                    [b]!attack {BODYPART} to {BODYPART}[/b][/color]: Ataca a tu oponente con la parte del cuerpo apropiada (lips/fingers/tits/sex/ass/feet).
+                    Ejemplo: [b]!attack fingers to sex[/b] (Sería un ataque de paja)
+[color=pink]                    [b]!pass[/b][/color]: Pasa tu turno
+[color=pink]                    [b]!endfight[/b][/color]: Termina el combate.
+[color=pink]                    [b]!savefight[/b][/color]: Guarda el estado del combate.
+[color=pink]                    [b]!savedfights[/b][/color]: Muestra lista de combates salvados.
+[color=pink]                    [b]!loadfight #[/b][/color]Carga un combate salvado. (usa [b]!savedfights[/b] para obtener el numero del combate primero)
+
+[color=purple]          [b]► Muñeco de entrenamiento[/b][/color]
+[icon]Yuni Hermit[/icon] Hola, soy el muñeco de entrenamiento. Si deseas tener una sesión de entrenamiento conmigo no dudes en pedirme ayuda.Ademas, tengo cuidado de rolear (roleplay) . Solo puedes pelear conmigo 3 veces por dia... (Gracias a Yuni por dejarme su cuerpo para que el resto de gente practique) ! (Todos sus posts estan escritos con sus emociones!)
+[color=pink]                    [b]!trainingdummy[/b][/color]: Te permite pelear con el muñeco de entrenamiento, te genera dinero de manera normal pero solo puedes hacerlo 3 veces al día.
+[color=pink]                    [b]!trainingdummy2[/b][/color]: Version masculina. (No rolea)
+[color=pink]                    [b]!succuboss[/b][/color]: ¡Pelea de jefe! Cuesta  $2.00 pelear contra el, pero si ganas, ¡Obtienes $6.00! Es un oponente muy complicado con muchos trucos.
+[color=pink]                    [b]!time2dummy[/b][/color]: Te dice cuanto tiempo queda para poder volver a practicar con el muñeco de entrenamiento.
+                    Los mismos comandos que se usan en combate normal se usan contra el muñeco de entrenamiento. (!attack, !pass, !endfight)
+
+[color=pink]                    [b]El bot puede leer los comandos tanto en el canal general como en un privado.[/b][/color]

@@ -1,0 +1,23 @@
+Lets start with that idea. How about quests? 
+
+Not the big ones, like you have to defeat the dragon god. Instead easy ones like kill 10 wolfs. 
+
+Lets say you start with !quests to get a overview of which quests you want to do. Then you register for a quest, allowing others to register too for it. Then you can start it. 
+
+But to run a simulation of a quest i want to do another quest. 
+This quest is about a gang that has started to appear. The quest is about getting rid of them. I will do the basic system and explain where something could be included.
+
+So i register for the quest and you want to join me in my quest. Then we start. we get a short description. Like the gang is active around the town and we should first look in the backalleys, 
+Thats were we start to rp freely. We can do whatever we want, until we find one of them or maybe a few, to make it more challenging. We start the fight with !startfight. 
+After the fight, pretend we won, So we get a hint dropped where the entrance to the hideout is. So we set out again, free style rp. Lets say inside the we find the second battle inside to clear it out. They drop another hint that the boss of the gang is at the back of the hideout and will take care of us for sure. So we set forth and do the last battle, a midboss battle maybe? After we defeated him we can get back to the tavern and end the quest, getting a reward.
+
+Now here are some more thoughts:
+
+1: I am a fan of crowd "helping" that means we dont have to do all the quests. Others can submit quests, which can be done. So basicly you still do a scripted route, but that makes it easier for others to create quests too. And the amount how difficult and how long the quest is can be added. You can create an easy quest to work with, or you can make a really long one and put lots of work into it.
+
+2: You can add dice rolls (dnd like) like you can find a hidden door and suprise the gangsters inside the hideout. Or they laid a trap and you can roll to avoid it or get damaged by it. Like that you can easily add more events. Thats one of the things i would like to get to in the long run.
+
+3: You can easily include new quests though the scripted setting. Sure it isnt that unique but it allows you to start playing without setting up difficult things. I think there should be a mode where you can quickly start a game. Because if you take too long to start people lose interest fast.
+
+4: It doesnt mean you dont need an gm, i would like that like the other part of the game. You can do a gm quest, truely being unique because you arent bound by a script like before. 
+

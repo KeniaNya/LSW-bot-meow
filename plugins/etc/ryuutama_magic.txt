@@ -1,0 +1,5 @@
+
+                                          ⭐ ⭐ [color=cyan][b]Magic[/b] ⭐ ⭐
+Season magic: {pj.seasonMagic}, Known spells: {pj.knownSpells} (lvl 1-3, Low level magic only)
+Spellbook:[/color]
+{pj.spellBook.join("\n")}

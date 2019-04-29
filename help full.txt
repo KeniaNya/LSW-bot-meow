@@ -1,0 +1,118 @@
+﻿[collapse=List of updates!]
+Version 1.0
+Registration, Character cards and sheets, Shops (buy only), Training (increasing stats only), Combat, Money trading between users (useful for bets or economical dominance).
+
+Version 1.1
+Custom card and sheet colors, Added more items to the stores, Ability to enter a fight with half lust points (!readyshort), Ability to reset your stats and equipment as if you just registered.
+
+Version 1.2
+Shops (buy and sell items now), Indulge (opposite of training) decreases a stat by 1 and gives you money back, Added new shop and a 'flavor' equipment slot where you can equip naughty items.
+
+Version 1.3
+Added training dummies. You can now fight against an automated opponent, use !trainingdummy for a female opponent and !trainingdummy2 for a male opponent.
+
+Version 1.4
+Save and Load matches. Added the ability to save and resume matches. The commands are: !savefight, !savedfights and !loadfight
+
+Version 1.5
+Added alternate names for the body parts.
+[/collapse]
+
+[collapse=Alternate names for the body parts]
+fingers: hands, paws
+lips: mouth, throat, tongue, maw, muzzle
+tits: breasts, boobs, nipples
+sex: pussy, cock, slit, shaft, cunny, cunt, clit, dick, vagina, penis
+ass: butt, rump, rear, butthole, buttcheeks, tail (for furries)
+feet: legs, toes, thighs, knee, thigh
+
+If you have more suggestions, please send me a note!
+[/collapse]
+
+[color=gray]══════════════════════════════════════════════════════════════════════════════════════════
+                                        ⭐ ⭐ [color=purple][b]Lewd Sexual Wrestling - The sexfight club![/b][/color] ⭐ ⭐
+══════════════════════════════════════════════════════════════════════════════════════════
+
+[color=purple]          [b]► Welcome to the sexfight club![/b][/color]
+[color=pink]                    Sexfights are erotic competitions where the first to cum, loses! Techniques include handjobs, frotting,[/color]
+[color=pink]                    penetrative sex, footjobs, blowjobs, erotic submission holds, and more! Think wrestling, only with cum~[/color]
+[color=pink]                    In this club you earn money by sexfighting other people, and with that you can buy new outfits and toys,[/color]
+[color=pink]                    or just train your body to be the best Sexfighter![/color]
+
+══════════════════════════════════════════════════════════════════════════════════════════
+                                                                 ⭐ ⭐ [color=purple][b]Combat rules[/b][/color] ⭐ ⭐
+══════════════════════════════════════════════════════════════════════════════════════════
+
+[color=purple]          [b]► Getting started[/b][/color]
+[color=pink]                    First, you have to register to the club by typing [b]!register[/b], either on the main room or in private to the bot,[/color]
+[color=pink]                    Then, you should check your character card by using either [b]!card[/b] or [b]!sheet[/b] to see all your things.[/color]
+[color=pink]                    After that, you can check the different stores there are to see if there's something you would like to [b]!buy[/b].[/color]
+[color=pink]                    Don't forget to [b]!equip[/b] your newly adquired items![/color]
+[color=pink]                    Also, you can chose to train your body using the appropriate command, example: [b]!train attack on fingers[/b][/color]
+[color=pink]                    Each point in a stat makes you inflict more lust on your opponent when fighting, and each point in defense reduces[/color]
+[color=pink]                    the lust inflicted to you in that area.[/color]
+[color=pink]                    Once you're satisfied with your things, you can look for a match in the room and enter the ring by getting [b]!ready[/b][/color]
+
+[color=purple]          [b]► On the ring[/b][/color]
+[color=pink]                    In your turn, you can choose how and where are you going to tease your opponent using [b]!attack[/b] followed by the[/color]
+[color=pink]                    body part you're using, then the word 'to', and then the area you want to tease.[/color]
+[color=pink]                    Example: [b]!attack tits to lips[/b] (that would be a breast smother pin or similar move)[/color]
+[color=pink]                    You can also decide to [b]!pass[/b] your turn if you so desire.[/color]
+[color=pink]                    The pink bars under the fighters's icons are their total lust endurance, once it depeletes, they cum~[/color]
+[color=pink]                    You can also end a match by using the command [b]!endfight[/b] (Useful when someone has to leave early)[/color]
+[color=pink]                    At the end of each match, the winner is awarded $2.00, while the loser only gets $1.00[/color]
+
+══════════════════════════════════════════════════════════════════════════════════════════
+                                                                 ⭐ ⭐ [color=purple][b]List of Commands[/b][/color] ⭐ ⭐
+══════════════════════════════════════════════════════════════════════════════════════════
+[color=purple]          [b]► Character related[/b][/color]
+[color=pink]                    [b]!register[/b][/color]: Register to the database.
+[color=pink]                    [b]!card[/b][/color]: Prints your Character Card in public.
+[color=pink]                    [b]!cardcode[/b][/color]: Prints the code so you can copy and paste it to your profile.
+[color=pink]                    [b]!sheet[/b][/color]: Prints your Character Sheet (the complete info) in a private message.
+[color=pink]                    [b]!sheetcode[/b][/color]: Prints the code so you can copy and paste it to your profile.
+[color=pink]                    [b]!sheetcolors[/b][/color]: Sets custom colors for your card and sheet. Example: [b]!sheetcolors green and yellow[/b]
+[color=pink]                    [b]!train {ATK/DEF} on {STAT}[/b][/color]: Increases by 1 the selected stat. Costs $10.00 and max 6 on a stat without items.
+[color=pink]                    [b]!indulge {ATK/DEF} on {STAT}[/b][/color]: Decreases by 1 the selected stat. You get $10.00 back and max -6 on a stat without items.
+                    Options: attack/defense to lips/fingers/tits/sex/ass/feet. Example: [b]!train defense on ass[/b]
+[color=pink]                    [b]!sendmoney # to {PERSON}[/b][/color]: Sends # money to the specified person. Example: [b]!sendmoney 1 to Kenia Nya[/b]
+[color=pink]                    [b]!resetcharacter[/b][/color]: Deletes all your items and stats but gives you the starting money, leaving you like if you just registered.
+
+[color=purple]          [b]► Buy Equipment[/b][/color]
+[color=pink]                    [b]!outfits[/b][/color]: Open the clothes and outfits shop.
+[color=pink]                    [b]!sextoys[/b][/color]: Open the sex-shop catalog.
+[color=pink]                    [b]!accessories[/b][/color]: Open the general items shop.
+[color=pink]                    [b]!yunishop[/b][/color]: A shop owned by a friend that sells lots of submissive flavor items.
+                    They can be equipped independently as the other 3 categories.
+[color=pink]                    [b]!buy {ITEM}[/b][/color]: Buys the item named {ITEM}, if you have enough money.
+[color=pink]                    [b]!sell {ITEM}[/b][/color]: Sells the item named {ITEM}, and gives you half the original cost back.
+[color=pink]                    [b]!equip {ITEM}[/b][/color]: Equips the item named {ITEM}, if you have it in your inventory.
+                    Examples: [b]!buy Ballgag[/b] / [b]!equip Small bikini[/b]
+
+[color=purple]          [b]► Combat[/b][/color]
+[color=pink]                    [b]!ready[/b][/color]: Get inside the ring.
+[color=pink]                    [b]!readyshort[/b][/color]: Get inside the ring but at only half lust (useful for short or handicap fights).
+[color=pink]                    [b]!attack {BODYPART} to {BODYPART}[/b][/color]: Attack your opponent with the appropiate bodypart (lips/fingers/tits/sex/ass/feet).
+                    Example: [b]!attack fingers to sex[/b] (pussy fingering or handjob)
+[color=pink]                    [b]!pass[/b][/color]: Pass your turn.
+[color=pink]                    [b]!endfight[/b][/color]: Finishes the combat.
+[color=pink]                    [b]!savefight[/b][/color]: Saves the current combat.
+[color=pink]                    [b]!savedfights[/b][/color]: Shows a list of the saved combats.
+[color=pink]                    [b]!loadfight #[/b][/color]: Loads a selected combat. (use [b]!savedfights[/b] to get the number of your saved combat first)
+
+[color=purple]          [b]► Training dummy[/b][/color]
+[icon]Yuni Hermit[/icon] Hello! I'm the training dummy! If you want to practice your skills or just want to have a quick fuck, just give me a call and I'll give you a nice training session! Also, I take care of the emoting (roleplay) as well. You can only fight me 3 times a day though... (Thank you to Yuni for lending her body to be used as a cum-dump bot by the LSB users! All of her emotes were written by her personally!)
+[color=pink]                    [b]!trainingdummy[/b][/color]: Lets you fight an automated opponent in private messages, you earn money as usual but can only fight 3 times a day.
+[color=pink]                    [b]!time2dummy[/b][/color]: Lets you know the time left before you can fight the training dummy again.
+                    The same commands that are used in normal combat are used to fight the training dummy, and they only work in private messages. (!attack, !pass, !endfight)
+
+[color=pink]                    [b]The bot can read the commands either from the main room or from private messages.[/b][/color][/color]
+
+[collapse=Links to the rooms!]
+[noparse][session=Lewd Sexual Wrestling - The sexfight club!]ADH-5b5393f9514b3c25ab71[/session][/noparse] Main room
+[noparse][session=Lewd Sexual Wrestling - The sexfight club! 2]ADH-ab26b5c3fd556ff4384b[/session][/noparse] Secondary room (for emergencies when the main one is busy)
+[/collapse]
+
+
+
+This is a bot owed by: [icon]Kenia Nya[/icon]

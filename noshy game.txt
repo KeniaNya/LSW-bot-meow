@@ -1,0 +1,20 @@
+Adventure game
+
+Stats: 
+Strength: Every point gives you one more dice to roll on an attack
+
+Agility : If your speed is higher than your enemy you can roll an extra dice to see if you get an extra turn in (1d20+enemy speed you need to roll at least double the amount of your enemies speed to get an extra turn)
+
+Vitality: Every point in vitality increases your max hp by 20 points.
+Defense: Every point in it reduces the dmg you take by 1 point.
+
+
+Each player starts at lvl 1, getting 3 points in each attribute and one to add themselfs. 
+
+A simple lvl up system could be included, like you get xp= all the stat points of the enemy.
+Enemies:
+
+Stats for enemies are rolled randomly, with an account for the lvl of the adventurers. Like 1,5 times stats the adventurers have. That would allow for an challenging fight and still a group of adventurers fighting together, maybe with an cap on stats too, so they dont one hit.
+
+Well thats the basic concept, on it one can add things like items to modify the dice and throws, maybe healing. But it should all be withhin the things you did mostly for the lsw bot, so it should be easy to add.
+

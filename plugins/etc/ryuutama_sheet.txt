@@ -1,0 +1,10 @@
+
+                                          ⭐ ⭐ [color=cyan][b]Character sheet[/b] ⭐ ⭐
+{eicon} Character name: {pj.Name}, Owner: {pj.Owner}, Level: {pj.LVL}, XP: {pj.XP}
+Gender: {pj.Sex}, Age: {pj.Age}, Class: {pj.Class}, Archetype: {pj.Archetype}
+Mastered weapon: {pj.trainedWeapons.toString()}, Specialized terrain: {pj.Terrain.toString()}, Favorite object: {pj.favoriteObject}
+Color and Home: {pj.Color}, {pj.Home}
+Looks: {pj.Looks}
+Reason: {pj.Reason}
+                                          ⭐ ⭐ [b]Skills[/b] ⭐ ⭐[/color]
+{generateHabilities(pj)}

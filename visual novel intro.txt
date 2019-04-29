@@ -1,0 +1,17 @@
+:intro
+Welcome to the new LSW! I hope you have a great time in here! I'm Maria, the Bot Announcer, and I'm here to give you a quick tutorial on how this game works. Do you want to take the tutorial?
+-Options: yes(+tutorial), no(+byebye)
+
+:byebye
+Understood! You can always request the tutorial by telling me !tutorial here in private, have fun! Bye~
++end
+
+:tutorial
+Understood! Welcome to the world of Lewd Sexual Wrestling! (or LSW for short), In this place, people compete against each other for fame, fun, high-stakes or dom/sub relationships. Inside the ring (or bed), the idea is to sexually dominate your opponent, using techniques like teasing, groping, fondling, sucking, kissing, fingering, fucking, etc. The winner is whoever makes the other person cum first! Easy, right?
+
+The best way to teach you, is just by showing you how are things in here~ I'll be your opponent for this tutorial match~
+
+
+
+What's your dom/sub role? (doms get a small bonus against subs)
+-Options: dom(domsub=dom,+t1), sub(domsub=sub,+t1), switch(domsub=switch,+t1)

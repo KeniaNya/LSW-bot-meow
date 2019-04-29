@@ -1,0 +1,48 @@
+
+[color=purple][b]For the full info, check my profile: [user]Bot Announcer[/user].[/b][/color]
+[color=gray]══════════════════════════════════════════════════════════════════════════════════════════
+                                                                 ⭐ ⭐ [color=purple][b]List of Commands[/b][/color] ⭐ ⭐
+══════════════════════════════════════════════════════════════════════════════════════════
+[color=purple]          [b]► Character related[/b][/color]
+[color=pink]                    [b]!register[/b][/color]: Register to the database.
+[color=pink]                    [b]!card[/b][/color]: Prints your Character Card in public.
+[color=pink]                    [b]!cardcode[/b][/color]: Prints the code so you can copy and paste it to your profile.
+[color=pink]                    [b]!sheet[/b][/color]: Prints your Character Sheet (the complete info) in a private message.
+[color=pink]                    [b]!sheetcode[/b][/color]: Prints the code so you can copy and paste it to your profile.
+[color=pink]                    [b]!sheetcolors[/b][/color]: Sets custom colors for your card and sheet. Example: [b]!sheetcolors green and yellow[/b]
+[color=pink]                    [b]!train {ATK/DEF} on {STAT}[/b][/color]: Increases by 1 the selected stat. Costs $10.00 and max 5 on a stat without items.
+[color=pink]                    [b]!indulge {ATK/DEF} on {STAT}[/b][/color]: Decreases by 1 the selected stat. You get $10.00 back and max -3 on a stat without items.
+                    Options: attack/defense to lips/fingers/tits/sex/ass/feet. Example: [b]!train defense on ass[/b]
+[color=pink]                    [b]!sendmoney # to {PERSON}[/b][/color]: Sends # money to the specified person. Example: [b]!sendmoney 1 to Kenia Nya[/b]
+[color=pink]                    [b]!resetcharacter[/b][/color]: Deletes all your items and stats but gives you the starting money, leaving you like if you just registered.
+
+[color=purple]          [b]► Buy Equipment[/b][/color]
+[color=pink]                    [b]!outfits[/b][/color]: Open the clothes and outfits shop.
+[color=pink]                    [b]!sextoys[/b][/color]: Open the sex-shop catalog.
+[color=pink]                    [b]!accessories[/b][/color]: Open the general items shop.
+[color=pink]                    [b]!yunishop[/b][/color]: A shop owned by a friend that sells lots of submissive flavor items.
+                    They can be equipped independently as the other 3 categories.
+[color=pink]                    [b]!buy {ITEM}[/b][/color]: Buys the item named {ITEM}, if you have enough money.
+[color=pink]                    [b]!sell {ITEM}[/b][/color]: Sells the item named {ITEM}, and gives you half the original cost back.
+[color=pink]                    [b]!equip {ITEM}[/b][/color]: Equips the item named {ITEM}, if you have it in your inventory.
+                    Examples: [b]!buy Ballgag[/b] / [b]!equip Small bikini[/b]
+
+[color=purple]          [b]► Combat[/b][/color]
+[color=pink]                    [b]!ready[/b][/color]: Get inside the ring.
+[color=pink]                    [b]!readyshort[/b][/color]: Get inside the ring but at only half lust (useful for short or handicap fights).
+[color=pink]                    [b]!attack {BODYPART} to {BODYPART}[/b][/color]: Attack your opponent with the appropiate bodypart (lips/fingers/tits/sex/ass/feet).
+                    Example: [b]!attack fingers to sex[/b] (pussy fingering or handjob)
+[color=pink]                    [b]!pass[/b][/color]: Pass your turn.
+[color=pink]                    [b]!endfight[/b][/color]: Finishes the combat.
+[color=pink]                    [b]!savefight[/b][/color]: Saves the current combat.
+[color=pink]                    [b]!savedfights[/b][/color]: Shows a list of the saved combats.
+[color=pink]                    [b]!loadfight #[/b][/color]: Loads a selected combat. (use [b]!savedfights[/b] to get the number of your saved combat first)
+
+[color=purple]          [b]► Training dummy[/b][/color]
+[color=pink]                    [b]!trainingdummy[/b][/color]: Lets you fight an automated female opponent in private messages, you earn money as usual but can only fight 3 times a day.
+[color=pink]                    [b]!trainingdummy2[/b][/color]: Male version. (doesn't have emotes)
+[color=pink]                    [b]!succuboss[/b][/color]: Boss fight! Costs $2.00 to fight but if you win you get $6.00! Very hard opponent and has a few tricks...
+[color=pink]                    [b]!time2dummy[/b][/color]: Lets you know the time left before you can fight the training dummy again.
+                    The same commands that are used in normal combat are used to fight the training dummy, and they only work in private messages. (!attack, !pass, !endfight)
+
+[color=pink]                    [b]The bot can read the commands either from the main room or from private messages.[/b][/color][/color]

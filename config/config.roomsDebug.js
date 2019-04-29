@@ -1,0 +1,2 @@
+{"frontpage":{"plugins":["BF"]}
+}
