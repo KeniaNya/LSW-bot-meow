@@ -9,6 +9,8 @@ var misses = 0;
 var cushions = 0;
 var cookies = 0;
 var buttons = 0;
+var awoos = 0;
+var teas = 0;
 var g = "[color=green]"; var y = "[color=yellow]"; var r = "[color=red]"; var ec = "[/color]";
 
 var bbcouch = "A spring-loaded boxing glove fires up from under the cushion, smashing into their crotch! It pushes them a couple inches off the cushion before retreating, firing again as they fall, and again until they stop falling on the cushion."
@@ -19,6 +21,41 @@ module.exports = function (parent, chanName) {
 
     var cmdHandler = {};
     channel = chanName;
+	
+	cmdHandler.bartest = function (args, data) {
+		let number = parseInt(args);
+		if (number < 0 || number > 100 || isNaN(number)) { return 0; }
+		let total = 100;
+		let p = Math.round(1000 * number / total);
+		let eicon = function(name) { return "[eicon]"+name+"[/eicon]"; }
+		let e1 = eicon("d_0");
+		let e2 = eicon("m_0");
+		let e3 = eicon("m_0");
+		//let e4 = eicon("m_0");
+		let e4 = eicon("d_f_0");
+		
+		//parte 1
+		if (p > 0) { e1 = eicon("d_1"); }
+		if (p > 125) { e1 = eicon("d_2"); }
+		if (p > 250) { e1 = eicon("d_3"); }
+		//parte 2
+		if (p > 250) { e2 = eicon("d_m_1"); }
+		if (p > 375) { e2 = eicon("d_m_2"); }
+		if (p > 500) { e2 = eicon("m_3"); }
+		//parte 3
+		if (p > 500) { e3 = eicon("d_m_1"); }
+		if (p > 625) { e3 = eicon("d_m_2"); }
+		if (p > 750) { e3 = eicon("m_3"); }
+		//parte 4
+		//if (p > 60) { e4 = eicon("d_m_1"); }
+		//if (p > 70) { e4 = eicon("d_m_2"); }
+		//if (p > 80) { e4 = eicon("m_3"); }
+		//parte 5
+		if (p > 750) { e4 = eicon("d_f_1"); }
+		if (p > 875) { e4 = eicon("d_f_2"); }
+		
+		fChatLibInstance.sendMessage(e1+e2+e3+e4, channel);
+	}
 	
 	cmdHandler.roll = function (args, data) {
 		let numbers = args.split("d");
@@ -99,6 +136,29 @@ module.exports = function (parent, chanName) {
 	cmdHandler.shoot = cmdHandler.trigger;
 	cmdHandler.rr = cmdHandler.trigger;
 	
+	cmdHandler.awoo = function (args, data) {
+		fChatLibInstance.sendMessage(y + data.character + " starts to awoo...[/color]", channel);
+		let recamara = Math.floor(Math.random() * (6 - awoos));
+		if (recamara == 0) {
+			fChatLibInstance.sendMessage(r+"The bot puts a muzzle on " + data.character + "'s snout! That'll keep them quiet~[/color]", channel);
+			awoos = 0;
+		} else {
+			awoos += 1;
+			fChatLibInstance.sendMessage(g+"And they get away with it~[/color] (Awoos: "+awoos+")", channel);
+		}
+	}
+	
+	cmdHandler.tea = function (args, data) {
+		fChatLibInstance.sendMessage(y + data.character + " request a cup of tea and the bot promptly prepares it and rushes at them...[/color]", channel);
+		let recamara = Math.floor(Math.random() * (6 - teas));
+		if (recamara == 0) {
+			fChatLibInstance.sendMessage(r+"The bot trips and spills the hot tea all over " + data.character + "![/color] [url=https://m.youtube.com/watch?v=GaS4PDRGjiY]like this~[/url]", channel);
+			teas = 0;
+		} else {
+			teas += 1;
+			fChatLibInstance.sendMessage(g+"The bot delivers the tea, it's pretty good~![/color] (Cups served so far: "+teas+")", channel);
+		}
+	}
 	
 	
 	cmdHandler.couch = function (args, data) {

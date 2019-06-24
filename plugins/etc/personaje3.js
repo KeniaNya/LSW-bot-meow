@@ -7,7 +7,7 @@
 //*****************************************************************************************************************************************
 
 var requireNew = require('require-new');
-var statTable = [0,1,2,4,6,9,13,18];
+var statTable = [0,0,1,2,4,6,9,13,18,18,18,18,18,18];
 
 function Personaje (newChara) {
 	var customObjectArray = [];
@@ -21,6 +21,8 @@ function Personaje (newChara) {
 	this.Gold = parseInt(newChara.Gold);
 	this.sp = (newChara.sp == undefined ? 0 : parseInt(newChara.sp));
 	if (newChara.faction !== undefined) { this.faction = newChara.faction; } else { this.faction = "None yet!"; }
+	
+	this.looking = (newChara.looking == undefined ? "no" : newChara.looking);
 	
 	this.domsub = (newChara.domsub === undefined ? "switch" : newChara.domsub);
 	this.cwins = (newChara.cwins === undefined ? 0 : parseInt(newChara.cwins));
@@ -51,8 +53,6 @@ function Personaje (newChara) {
 	this.bdefass = parseInt(newChara.defass);
 	this.bdeffeet = (newChara.deffeet === undefined ? 1 : parseInt(newChara.deffeet));
 	
-	this.usedstatpoints = statTable[this.atklips] + statTable[this.atkfingers] + statTable[this.atktits] + statTable[this.atksex] + statTable[this.atkass] + statTable[this.atkfeet] + statTable[this.deflips] + statTable[this.deffingers] + statTable[this.deftits] + statTable[this.defsex] + statTable[this.defass] + statTable[this.deffeet];
-	
 	this.custom = (newChara.custom === undefined ? "" : newChara.custom);
 	if (this.custom != "") {
 		let customArray = this.custom.split("#meow#");
@@ -77,7 +77,7 @@ function Personaje (newChara) {
 	let ws = [801,802,803,804,805]; this.weights = [];
 	for (let i = 0; i < ws.length; i++) { this.weights[i] = buscaId(ws[i],customObjectArray); }
 	
-	this.maxHP = this.HP;
+	//this.maxHP = this.HP;
 	
 	this.color1 = newChara.color1;
 	this.color2 = newChara.color2;
@@ -171,6 +171,10 @@ function Personaje (newChara) {
 	for (let i = 0; i < names.length; i++) {
 		this[names[i]] += this.addiction[names[i]];
 	}; */
+	
+	this.usedstatpoints = (this.atklips + this.atkfingers + this.atktits + this.atksex + this.atkass + this.atkfeet + this.deflips + this.deffingers + this.deftits + this.defsex + this.defass + this.deffeet);
+	if (this.name == "ErotiClaire") { this.usedstatpoints = 0; }
+	
 	
 	this.atkbody = Math.ceil((this.atktits + this.atkass + this.atksex) / 3);
 	this.defsight = Math.ceil((this.deftits + this.defass + this.defsex) / 3);
@@ -349,8 +353,6 @@ function Personaje (newChara) {
 	
 	this.setweight = function(selection) {
 		for (let i = 0; i < this.weights.length; i++) {
-			console.log(this.weights[i].name.toLowerCase());
-			console.log(selection.toLowerCase());
 			if (this.weights[i].name.toLowerCase() == selection.toLowerCase()) {
 				this.weight = this.weights[i];
 				return true;

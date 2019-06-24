@@ -56,7 +56,7 @@ module.exports = function (parent, chanName) {
 	cmdHandler.speak4 = function (args, data) {
 		//if (data.character != "Kenia Nya" && data.character != "Darent" && data.character != "Ken the Wildcat" && data.character != "Netrunner Cibo") { return 0; }
 		if (fChatLibInstance.roomMods[channel].indexOf(data.character) == -1) { return 0; } //checar si el usuario es DM
-		fChatLibInstance.sendMessage(args, "adh-1fbc3bb1cc55e5261aa8");
+		fChatLibInstance.sendMessage(args, "adh-730b2671384a88f6e578");
 	}
 	cmdHandler.debuggy = function (args, data) {
 		if (data.character != "Kenia Nya" && data.character != "Darent" && data.character != "Ken the Wildcat" && data.character != "Netrunner Cibo") { return 0; }
@@ -92,7 +92,7 @@ module.exports = function (parent, chanName) {
 		if (data.character != "Kenia Nya" && data.character != "Darent" && data.character != "Ken the Wildcat") { return 0; }
 		ad_on = true;
 		
-		ad_message = "[color=pink][color=purple][b]Hourly announcement:[/b][/color] Remember to check the second room [session=LSW 2]adh-ab26b5c3fd556ff4384b[/session] that you can use when the main one is busy. Also, there's a third OOC room [session=OOC and Games room]adh-6901886fee30cce8e3d5[/session] where you can have casual chatter and discussion or play my other games, check it's description for more info. [color=orange]If you're looking for more traditional combat (using the same game engine) you can head to the [session=Lewd Sexual Wrestling - Rough combat room]adh-1fbc3bb1cc55e5261aa8[/session], a place without kink restrictions![/color] Finally, be sure to check the latest updates in [url=https://sexfightclub.wordpress.com/]the official blog![/url][/color]";
+		ad_message = "[color=pink][color=purple][b]Hourly announcement:[/b][/color] Remember to check the second room [session=LSW 2]adh-ab26b5c3fd556ff4384b[/session] that you can use when the main one is busy. Also, there's a third OOC room [session=OOC and Games room]adh-6901886fee30cce8e3d5[/session] where you can have casual chatter and discussion or play my other games, check it's description for more info. [color=orange]If you're looking for more traditional combat (using the same game engine) you can head to the [session=Virtual Fight Arena - Dice, Ryona, Rape, Bad endings]adh-730b2671384a88f6e578[/session], a place without kink restrictions![/color] Finally, be sure to check the latest updates in [url=https://sexfightclub.wordpress.com/]the official blog![/url][/color]";
 		
 		ad_message2 = "[color=pink][color=purple][b]Hourly announcement:[/b][/color] Remember that the MAIN ROOM is this one: [session=Lewd Sexual Wrestling - The sexfight club!]adh-5b5393f9514b3c25ab71[/session] That's where most of the action happens, so be sure to be there so you don't miss it![/color]";
 		
@@ -104,7 +104,7 @@ module.exports = function (parent, chanName) {
 		/*
 		fChatLibInstance.sendMessage(ad_message, channel);
 		fChatLibInstance.sendMessage(ad_message2, "adh-ab26b5c3fd556ff4384b"); // room 2
-		fChatLibInstance.sendMessage(ad_message2, "adh-1fbc3bb1cc55e5261aa8"); // rough
+		fChatLibInstance.sendMessage(ad_message2, "adh-730b2671384a88f6e578"); // rough
 		fChatLibInstance.sendMessage(ad_message2, "adh-6901886fee30cce8e3d5"); // ooc
 		*/
 		clearInterval(tiempo);
@@ -113,7 +113,7 @@ module.exports = function (parent, chanName) {
 		tiempo = setInterval( function() {
 			fChatLibInstance.sendMessage(ad_message, channel);
 			fChatLibInstance.sendMessage(ad_message2, "adh-ab26b5c3fd556ff4384b"); // room 2
-			fChatLibInstance.sendMessage(ad_message2, "adh-1fbc3bb1cc55e5261aa8"); // rough
+			fChatLibInstance.sendMessage(ad_message2, "adh-730b2671384a88f6e578"); // rough
 			fChatLibInstance.sendMessage(ad_message2, "adh-6901886fee30cce8e3d5"); // ooc
 		}, 7200000 );
 		

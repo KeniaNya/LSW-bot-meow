@@ -1,6 +1,7 @@
 var fChat;
 var channel;
 var BFroom = "adh-5b5393f9514b3c25ab71";
+var RoughRoom = "adh-730b2671384a88f6e578";
 
 module.exports = function (parent, chanName) {
     fChat = parent;

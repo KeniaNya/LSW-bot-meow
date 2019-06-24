@@ -1,9 +1,9 @@
 var FChatLib = require('fchatlib');
 
 var options = {
-	username: "kenia1001", password: "7beY69ow",
+	username: "dash", password: "meow1234nyan",
 	character: "Bot Announcer Beta", master: "Kenia Nya",
-	room: "frontpage", cname: "kenia bot beta", cversion: "1.0",
+	room: "frontpage", cname: "kenia bot beta", cversion: "one point meow",
 	debug: "true", discord: "false", rooms: "debug"
 };
 

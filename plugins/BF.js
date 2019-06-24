@@ -27,7 +27,8 @@ var totalXP = [0,100,500,1200,2200,3500,5000,6700,8500,10500,12600,14900,17300,1
 var level = [1,4,7,10,13,15,17,18,20,21,23,24,25,27,28,29,30,31,32,33,34,35,36,37,38,38,39,40,41,42,42,43,44,45,45,46,47,47,48,49,49,50,51,51,52,53,53,54,54,55,56,56,57,57,58,58,59,60,60,61,61,62,62,63,63,64,64,65,65,66,66,67,67,68,68,69,69,70,70,71,71,72,72,72,73,73,74,74,75,75,76,76,76,77,77,78,78,79,79,79,80,80,81,81,81,82,82,83,83,83,84,84,85,85,85,86,86,86,87,87,88,88,88,89,89,89,90,90,91,91,91,92,92,92,93,93,93,94,94,94,95,95,96,96,96,97,97,97,98,98,98,99,99,99,100];
 var xpForNext = [8,25,12,131,544,596,832,159,761,148,1224,725,276,2152,1889,1700,1591,1568,1637,1804,2075,2456,2953,3572,4319,519,1400,2421,3588,4907,707,2184,3825,5636,1136,3123,5292,592,2949,5500,600,3351,6308,1208,4377,7764,2464,6075,675,4516,8593,2993,7312,1612,6179,379,5200,10281,4281,9628,3528,9147,2947,8844,2544,8725,2325,8796,2296,9063,2463,9532,2832,10209,3409,11100,4200,12211,5211,13548,6448,15117,7917,717,9724,2424,11775,4375,14076,6576,16633,9033,1433,11852,4152,14939,7139,18300,10400,2500,14041,6041,17968,9868,1768,14087,5887,18604,10304,2004,15125,6725,20256,11756,3256,17203,8603,3,14372,5672,20469,11669,2869,18100,9200,300,15971,6971,23088,13988,4888,21457,12257,3057,20084,10784,1484,18975,9575,175,18136,8636,27073,17473,7873,26792,17092,7392,26799,16999,7199,27100,17200,7300,27701];
 var mainBotChannel = "adh-5b5393f9514b3c25ab71";
-var roughCombatRoom = "adh-1fbc3bb1cc55e5261aa8";
+var roughCombatRoom = "adh-730b2671384a88f6e578";
+var ryonaRoom = "adh-307180dac01a9a44d5bc";
 
 module.exports = function (parent, chanName) {
     fChatLibInstance = parent;
@@ -298,7 +299,15 @@ module.exports = function (parent, chanName) {
 				data.publico ? fChatLibInstance.sendMessage(message, channel) : fChatLibInstance.sendPrivMessage(data.character, message);
 				return 0;
 			}
-			let message = "You can't sell stat points. :p :p :p :p :p";
+			let message = "Error! You don't have stat points!";
+			let cantidad = parseInt(args);
+			if (isNaN(cantidad) || cantidad < 1) { cantidad = 1; }
+			if (chara.sp >= cantidad) {
+				chara.sp = parseInt(chara.sp) - cantidad;
+				chara.Gold = parseInt(chara.Gold) + (10 * cantidad);
+				message = "Stat point sold~";
+				client.hmset(data.character, chara);
+			}
 			data.publico ? fChatLibInstance.sendMessage(message, channel) : fChatLibInstance.sendPrivMessage(data.character, message);
 		});
 	}
@@ -805,8 +814,8 @@ module.exports = function (parent, chanName) {
 		});
 	}
 	
+	// !bf_debuggy cmdHandler.equiploadoutsecretmeow("Tryhard",{character:"ErotiClaire"})
 	cmdHandler.equiploadoutsecretmeow = function (args, data) {
-		//if (data.character == "ErotiClaire") { return 0; }
 		client.hgetall(data.character, function (err, chara) { if (chara == null) { let message = "You're not registered (or come from season one), use !register to join the club or !transfer to bring your character to the new season."; data.publico ? fChatLibInstance.sendMessage(message, channel) : fChatLibInstance.sendPrivMessage(data.character, message); return 0; }
 			let pj = new Personaje(chara);
 			let result = pj.equipLoadout(args);
@@ -939,8 +948,8 @@ module.exports = function (parent, chanName) {
 			}
 		});
 	}
-	
-	/*cmdHandler.ranks = function (args, data) {
+	/*
+	cmdHandler.ranks = function (args, data) {
 		client.send_command("scan", ["0", "count", "10000"], function(err, reply) {
 			if (reply == null) { console.log("Error! "+err); return 0; }
 			//console.log(reply[1].join(", "));
@@ -956,7 +965,7 @@ module.exports = function (parent, chanName) {
 					if (i == (users.length - 1)) {
 						let message = "\n";
 						for (let rank in ranks) {
-							if (rank == "c") { continue; }
+							if (rank == "e") { continue; }
 							message += "                     ⭐ ⭐ [eicon]"+rank+"-rank[/eicon] ⭐ ⭐\n[user]" + ranks[rank].join("[/user], [user]") + "[/user]\n";
 						}
 						fChatLibInstance.sendPrivMessage(data.character, message);
@@ -980,6 +989,64 @@ module.exports = function (parent, chanName) {
 			client.hmset(data.character, chara);
 			let message = "Your default LP maximum was increased by 1! You now have "+chara.HP+" LP";
 			data.publico ? fChatLibInstance.sendMessage(message, channel) : fChatLibInstance.sendPrivMessage(data.character, message);
+		});
+	}
+	
+	cmdHandler.look = function (args, data) {
+		client.hgetall(data.character, function (err, chara) {
+			if (chara == null) {
+				let message = "You're not registered (or come from season one), use !register to join the club or !transfer to bring your character to the new season.";
+				data.publico ? fChatLibInstance.sendMessage(message, channel) : fChatLibInstance.sendPrivMessage(data.character, message);
+				return 0;
+			}
+			chara.looking = "yes";
+			fChatLibInstance.sendMessage("[b][color=green]"+data.character+" is looking for a match![/color][/b] (use !stoplook to cancel this or use !looking to see who else is looking for a match)", channel);
+			client.hmset(data.character, chara);
+		});
+	}
+	
+	cmdHandler.stoplook = function (args, data) {
+		client.hgetall(data.character, function (err, chara) {
+			if (chara == null) {
+				let message = "You're not registered (or come from season one), use !register to join the club or !transfer to bring your character to the new season.";
+				data.publico ? fChatLibInstance.sendMessage(message, channel) : fChatLibInstance.sendPrivMessage(data.character, message);
+				return 0;
+			}
+			chara.looking = "no";
+			fChatLibInstance.sendMessage("[b][color=yellow]"+data.character+" is no longer looking for a match![/color][/b] (use !look to set yourself as looking for a match or use !looking to see who else is looking for a match)", channel);
+			client.hmset(data.character, chara);
+		});
+	}
+	
+	cmdHandler.notlook = cmdHandler.stoplook;
+	
+	cmdHandler.looking = function (args, data) {
+		client.send_command("scan", ["0", "count", "10000"], function(err, reply) {
+			if (reply == null) { console.log("Error! "+err); return 0; }
+			//console.log(reply[1].join(", "));
+			let userList = reply[1];
+			let looking = [];
+			for (let i = 0; i < userList.length; i++) {
+				
+				client.hgetall(userList[i], function (err, chara) {
+					if (chara == null) { console.log("Error at "+userList[i]); return 0; }
+					if (users[userList[i]] != undefined) {
+						if (users[userList[i]].status != "offline" && users[userList[i]].status != undefined) {
+							if (chara.looking == "yes") {
+								looking.push(userList[i]);
+							}
+						}
+					}
+					if (i == (userList.length - 1)) {
+						if (looking.length == 0) { fChatLibInstance.sendMessage("[b][color=yellow]Sadly, nobody is looking for a match right now... you can be the first one, use[/color] !look [color=yellow]to set yourself as looking![/color][/b]", channel); return 0; }
+						let message = "[b][color=green]Online users looking for a match:[/color][/b]\n";
+						if (looking.length > 0) { message += "[user]"; }
+						message += looking.join("[/user], [user]");
+						if (looking.length > 0) { message += "[/user]\n[color=yellow]You can set yourself as looking for a match using[/color] !look [color=yellow]or stop looking for a match using[/color] !stoplook"; }
+						fChatLibInstance.sendMessage(message, channel);
+					}
+				});
+			}
 		});
 	}
 	
@@ -1091,6 +1158,15 @@ module.exports = function (parent, chanName) {
 		fChatLibInstance.sendMessage("/me [color=yellow]grabs Adaria Ignissia by her nose and mouth hook and walks up to "+data.character+", pushing Adaria down to her knees, hands behind her back and face looking up, ready to be facesat~[/color]", channel);
 	}
 	
+	cmdHandler.callwaitress = function (arga, data) {
+		fChatLibInstance.sendMessage("[color=yellow]ErotiClaire's pussy vibrators turn on, signaling her to come to "+data.character+" and offer them a drink...[/color] [color=pink][sub]The vibrators will stay on until she obeys~[/sub][/color]", channel);
+	}
+	
+	cmdHandler.callgirlywaitress = function (arga, data) {
+		fChatLibInstance.sendMessage("[color=yellow]Robert Delight's ass vibrators turn on, signaling her to come to "+data.character+" and offer them a drink...[/color] [color=pink][sub]The vibrators will stay on until she obeys~[/sub][/color]", channel);
+	}
+	
+	
 	cmdHandler.ready = function (args, data) {
 		if (data.publico == false) { return 0; }
 		client.hgetall(data.character, function (err, chara) {
@@ -1154,7 +1230,10 @@ module.exports = function (parent, chanName) {
 		});
 	}
 	
+	cmdHandler.striptease = function (args, data) { cmdHandler.strip("me", data); cmdHandler.sexymoves("", data); }
+	
 	cmdHandler.kiss = function (args, data) { cmdHandler.attack("lips to lips "+args, data); }
+	cmdHandler.kisses = function (args, data) { cmdHandler.attack("lips to lips "+args, data); }
 	cmdHandler.fuck = function (args, data) { cmdHandler.attack("sex to sex "+args, data); }
 	cmdHandler.spank = function (args, data) { cmdHandler.attack("hands to butt "+args, data); }
 	cmdHandler.rimjob = function (args, data) { cmdHandler.attack("tongue to ass "+args, data); }
@@ -1211,13 +1290,14 @@ module.exports = function (parent, chanName) {
 	cmdHandler.nuzzle = function (args, data) { cmdHandler.attack("cheek to cheek "+args, data); }
 	cmdHandler.headbutt = function (args, data) { cmdHandler.attack("head to head "+args, data); }
 	cmdHandler.suplex = function (args, data) { cmdHandler.attack("body to body "+args, data); }
-	
+	cmdHandler.sniperspank = function (args, data) { cmdHandler.attack("hand to butt "+args, data); }
 	cmdHandler.assfuck = function (args, data) { cmdHandler.attack("sex to ass "+args, data); }
 	cmdHandler.handjob = function (args, data) { cmdHandler.attack("hands to cock "+args, data); }
 	cmdHandler.footjob = function (args, data) { cmdHandler.attack("feet to cock "+args, data); }
 	cmdHandler.hotdog = function (args, data) { cmdHandler.attack("cock to ass "+args, data); }
 	cmdHandler.hotdogged = function (args, data) { cmdHandler.attack("ass to cock "+args, data); }
 	cmdHandler.thighjob = function (args, data) { cmdHandler.attack("pussy to cock "+args, data); }
+	cmdHandler.towelsnap = function (args, data) { cmdHandler.attack("towel snap to butt "+args, data); }
 	
 	cmdHandler.sit = function (args, data) { cmdHandler.attack("ass to "+args, data); }
 	cmdHandler.massage = function (args, data) { cmdHandler.attack("hands to "+args, data); }
@@ -1229,6 +1309,33 @@ module.exports = function (parent, chanName) {
 	cmdHandler.hug = function (args, data) { cmdHandler.attack("body to body "+args, data); }
 	cmdHandler.hugs = function (args, data) { cmdHandler.attack("body to body "+args, data); }
 	
+	cmdHandler.tailjob = function (args, data) { cmdHandler.attack("tail to sex "+args, data); }
+	cmdHandler.tailwhip = function (args, data) { cmdHandler.attack("tail to butt "+args, data); }
+	cmdHandler.powerbottom = function (args, data) { cmdHandler.attack("ass to sex "+args, data); }
+	cmdHandler.analride = function (args, data) { cmdHandler.attack("ass to sex "+args, data); }
+	cmdHandler.assmilking = function (args, data) { cmdHandler.attack("ass to sex "+args, data); }
+	cmdHandler.analrodeo = function (args, data) { cmdHandler.attack("ass to sex "+args, data); }
+	cmdHandler.pimpslap = function (args, data) { cmdHandler.attack("dick to face "+args, data); }
+	cmdHandler.dickslap = function (args, data) { cmdHandler.attack("dick to face "+args, data); }
+	cmdHandler.tacklehug = function (args, data) { cmdHandler.attack("body to body "+args, data); }
+	cmdHandler.glomp = function (args, data) { cmdHandler.attack("body to body "+args, data); }
+	cmdHandler.tailprobe = function (args, data) { cmdHandler.attack("tail to prostate "+args, data); }
+	cmdHandler.deepthroat = function (args, data) { cmdHandler.attack("throat to cock "+args, data); }
+	cmdHandler.tainal = function (args, data) { cmdHandler.attack("tail to ass "+args, data); }
+	
+	cmdHandler.flash = function (args, data) {
+		let arr = args.split(' to ');
+		let part = arr[0];
+		let target = arr[1];
+		cmdHandler.attack(part +" to sight to "+target, data);
+	}
+	
+	cmdHandler.selfsuck = function (args, data) { cmdHandler.attack("mouth to cock to "+data.character, data); }
+	
+	cmdHandler.puffpuff = function (args, data) { cmdHandler.attack("tits to face "+args, data); }
+	cmdHandler.atomicdrop = function (args, data) { cmdHandler.attack("knee to balls "+args, data); }
+	cmdHandler.teabag = function (args, data) { cmdHandler.attack("balls to face "+args, data); }
+	cmdHandler.ballhat = function (args, data) { cmdHandler.attack("balls to head "+args, data); }
 	
 	cmdHandler.attack = function (args, data) {
 		args = args.trim();
@@ -2116,6 +2223,11 @@ module.exports = function (parent, chanName) {
 		Combate.changeMode();
 	}
 	
+	if (channel == ryonaRoom) {
+		tempCombate.changeMode();
+		Combate.changeMode();
+	}
+	
     return cmdHandler;
 };
 
@@ -2420,8 +2532,8 @@ function getRank(points) {
 	if (points <= 30) { return "d"; }
 	if (points <= 50) { return "c"; }
 	if (points <= 70) { return "b"; }
-	if (points <= 100) { return "a"; }
-	if (points <= 150) { return "s"; }
+	if (points <= 80) { return "a"; }
+	if (points <= 90) { return "s"; }
 	return "ss";
 }
 

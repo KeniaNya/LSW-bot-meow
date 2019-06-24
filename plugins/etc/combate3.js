@@ -136,11 +136,11 @@ function Combate() {
 		}
 		var cantidad = parseInt(hp);
 		if (!isNaN(cantidad) && cantidad > 0 && cantidad < 1001) {
-			actor.removeHP(100 - cantidad);
+			actor.HP = cantidad;
 			hoja += " [color=yellow]Starting with "+cantidad+" lust points.[/color]";
 		}
-		hoja += "\n          [color=gray]Sextoy: "+actor.weapon.name+", Outfit: "+actor.armor.name+", Accessory: "+actor.item.name+", Other: "+actor.flavorr.name+".[/color]";
 		actor.maxHP = actor.HP;
+		hoja += "\n          [color=gray]Sextoy: "+actor.weapon.name+", Outfit: "+actor.armor.name+", Accessory: "+actor.item.name+", Other: "+actor.flavorr.name+".[/color]";
 		this.actores.push(actor);
 		var messages = [hoja, ""];
 		if (this.actores.length == 2 && this.teamsf == false) {
@@ -155,7 +155,7 @@ function Combate() {
 	this.addActor2 = function(actor, hp) {
 		var cantidad = hp;
 		if (!isNaN(cantidad) && cantidad > 0) {
-			actor.removeHP(100 - cantidad);
+			actor.HP = cantidad;
 		}
 		actor.maxHP = actor.HP;
 		this.actores.push(actor);
@@ -246,7 +246,7 @@ function Combate() {
 			}
 			var ataque = atacante[atkStat] + defensor[addStat];
 			var defensa = defensor[defStat];
-			var dado = diceroll();
+			var dado = diceroll(this.crits);
 			var damage0 = 4 + parseInt(dado) + parseInt(ataque - defensa);
 			if (damage0 < 1) { damage0 = 1; } var damage = damage0; //var damage = ajuste[damage0];
 			if (this.turnCount == 1) { damage = Math.ceil(damage / 2); } // AJUSTE PARA BALANCEAR EL PODER DEL PRIMER JUGADOR
@@ -280,7 +280,7 @@ function Combate() {
 			//let fool = ","+Math.floor(Math.random()*10).toString()+Math.floor(Math.random()*10).toString()+Math.floor(Math.random()*10).toString();
 			let fool = "";
 			var message = "\n"+icon+"[color=pink][b]" + atacante.stageName + "[/b][/color] used their [color=pink][b]" + origin1 + "[/b][/color] to "+this.mode[0]+" [color=pink][b]" + defensor.stageName + "'s " + destiny1 + "[/b][/color], "+this.mode[1]+" [color="+this.mode[3]+"][b]" + damage +fool+ " "+this.mode[2]+" points![/b][/color] "+comment(damage);
-			if (dado == "14") { message += " [color=yellow][b](Critical hit~!)[/b][/color] Yeowch!"; }
+			if (dado == 14) { message += " [color=yellow][b](Critical hit~!)[/b][/color] Yeowch!"; }
 			if (this.teamsf == false) {
 				if (defensor.removeHP(damage)) {
 					if (Math.ceil(Math.random()*2) == 1 || !(!skipturn && letra != "me") || this.finisher || this.gender != "") {
@@ -515,10 +515,10 @@ function Combate() {
 		this.crits = true;
 	}
 	
-	function diceroll() {
-		if (this.crits == true) { 
+	function diceroll(crits) { console.log("crits: "+crits); console.log("crit: "+crit);
+		if (crits == true) { 
 			if (crit) { crit = false; return 14; }
-			if (Math.ceil(Math.random()*20) == 20) { return 14; }
+			if (Math.ceil(Math.random()*20) == 20) { return 14; console.log("natural 20, critical!"); }
 		}
 		return Math.ceil(Math.random()*6) + Math.ceil(Math.random()*4) + 2;
 	}
@@ -545,8 +545,8 @@ function getRank(points) {
 	if (points <= 30) { return "d"; }
 	if (points <= 50) { return "c"; }
 	if (points <= 70) { return "b"; }
-	if (points <= 100) { return "a"; }
-	if (points <= 150) { return "s"; }
+	if (points <= 80) { return "a"; }
+	if (points <= 90) { return "s"; }
 	return "ss";
 }
 
@@ -582,7 +582,8 @@ function comment(d) {
 	if (d < 14) { return "Ooh, they definitely felt that."; }
 	if (d < 19) { return "Woah, that looked hot!"; }
 	if (d < 25) { return "What an erotic move!"; }
-	return "That shouldn't be legal!!!";
+	if (d < 49) { return "That shouldn't be legal!!!"; }
+	return "As God is my witness, they are broken in half!";
 }
 
 function busca(lista, nombre) {

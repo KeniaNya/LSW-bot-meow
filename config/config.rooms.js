@@ -4,9 +4,8 @@
 ,"adh-6ae1b143ac4fb9c5eeb7":{"plugins":["BF","games","poker2","blackjack","mafia"],"name":"Lions den"}
 ,"adh-c1ca2804565e31a32513":{"plugins":["BF","games","poker2","blackjack","mafia","bbdice"],"name":"BB Clinic"}
 ,"adh-8fc13811ecd4294cc145":{"plugins":["BF","games","poker2","blackjack","mafia","dicegame"],"name":"Rol Hispano"}
-,"adh-1fbc3bb1cc55e5261aa8":{"plugins":["BF","games","poker2","blackjack","mafia","bbdice"],"name":"Rough room"}
-,"adh-cbbdce8a953436b609a9":{"plugins":["ryuutama"],"name":"Adventure Online Beta"}
-,"adh-e6b3926912c9ad9105f8":{"plugins":["ryuutama"],"name":"Adventure Online Beta 2"}
+,"adh-730b2671384a88f6e578":{"plugins":["BF","games","poker2","blackjack","mafia","bbdice"],"name":"Rough room"}
 ,"adh-39fb9ed76531d838b536":{"plugins":["autokick"],"name":"Mods lounge"}
 ,"adh-f1fce360e9b831d7be62":{"plugins":["toybox"],"name":"BDSM Costume Party"}
+,"adh-307180dac01a9a44d5bc":{"plugins":["BF"],"name":"Ryona!"}
 }
