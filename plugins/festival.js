@@ -9,7 +9,7 @@ var g = "[color=green]"; var y = "[color=yellow]"; var r = "[color=red]"; var p 
 var drinksref = "https://vinepair.com/articles/50-most-popular-cocktails-world-2017/";
 
 var redis = require("redis");
-var client = redis.createClient(6379, "192.168.0.18", {db: 15});
+var client = redis.createClient(6379, "127.0.0.1", {db: 15});
 
 module.exports = function (parent, chanName) {
     fChatLibInstance = parent;

@@ -21,14 +21,15 @@ var Combate = new combate();
 var tempCombate = new combate(); tempPj1 = {}; tempPj2 = {};
 var gyms = {};
 var scores = {};
-var client = redis.createClient(6379, "192.168.0.18", {db: 0});
-var clientOld = redis.createClient(6379, "192.168.0.18", {db: 1});
-var totalXP = [0,100,500,1200,2200,3500,5000,6700,8500,10500,12600,14900,17300,19800,22500,25300,28200,31200,34300,37500,40800,44200,47700,51300,55000,58800,62600,66500,70500,74600,78800,83000,87300,91700,96200,100700,105300,110000,114700,119500,124400,129300,134300,139400,144500,149700,155000,160300,165700,171100,176600,182200,187800,193500,199200,205000,210800,216700,222700,228700,234800,240900,247100,253300,259600,265900,272300,278700,285200,291700,298300,304900,311600,318300,325100,331900,338800,345700,352700,359700,366800,373900,381100,388300,395500,402800,410100,417500,424900,432400,439900,447500,455100,462700,470400,478100,485900,493700,501600,509500,517400,525400,533400,541500,549600,557700,565900,574100,582400,590700,599000,607400,615800,624300,632800,641300,649900,658500,667100,675800,684500,693300,702100,710900,719800,728700,737600,746600,755600,764700,773800,782900,792100,801300,810500,819800,829100,838400,847800,857200,866600,876100,885600,895200,904800,914400,924100,933800,943500,953300,963100,972900,982800,992700,1002600];
-var level = [1,4,7,10,13,15,17,18,20,21,23,24,25,27,28,29,30,31,32,33,34,35,36,37,38,38,39,40,41,42,42,43,44,45,45,46,47,47,48,49,49,50,51,51,52,53,53,54,54,55,56,56,57,57,58,58,59,60,60,61,61,62,62,63,63,64,64,65,65,66,66,67,67,68,68,69,69,70,70,71,71,72,72,72,73,73,74,74,75,75,76,76,76,77,77,78,78,79,79,79,80,80,81,81,81,82,82,83,83,83,84,84,85,85,85,86,86,86,87,87,88,88,88,89,89,89,90,90,91,91,91,92,92,92,93,93,93,94,94,94,95,95,96,96,96,97,97,97,98,98,98,99,99,99,100];
-var xpForNext = [8,25,12,131,544,596,832,159,761,148,1224,725,276,2152,1889,1700,1591,1568,1637,1804,2075,2456,2953,3572,4319,519,1400,2421,3588,4907,707,2184,3825,5636,1136,3123,5292,592,2949,5500,600,3351,6308,1208,4377,7764,2464,6075,675,4516,8593,2993,7312,1612,6179,379,5200,10281,4281,9628,3528,9147,2947,8844,2544,8725,2325,8796,2296,9063,2463,9532,2832,10209,3409,11100,4200,12211,5211,13548,6448,15117,7917,717,9724,2424,11775,4375,14076,6576,16633,9033,1433,11852,4152,14939,7139,18300,10400,2500,14041,6041,17968,9868,1768,14087,5887,18604,10304,2004,15125,6725,20256,11756,3256,17203,8603,3,14372,5672,20469,11669,2869,18100,9200,300,15971,6971,23088,13988,4888,21457,12257,3057,20084,10784,1484,18975,9575,175,18136,8636,27073,17473,7873,26792,17092,7392,26799,16999,7199,27100,17200,7300,27701];
+var client = redis.createClient(6379, "127.0.0.1", {db: 0});
+var clientOld = redis.createClient(6379, "127.0.0.1", {db: 1});
+var totalXP = [0,100,500,1200,2200,3500,5000,6700,8500,10500,12600,14900,17300,19800,22500,25300,28200,31200,34300,37500,40800,44200,47700,51300,55000,58800,62600,66500,70500,74600,78800,83000,87300,91700,96200,100700,105300,110000,114700,119500,124400,129300,134300,139400,144500,149700,155000,160300,165700,171100,176600,182200,187800,193500,199200,205000,210800,216700,222700,228700,234800,240900,247100,253300,259600,265900,272300,278700,285200,291700,298300,304900,311600,318300,325100,331900,338800,345700,352700,359700,366800,373900,381100,388300,395500,402800,410100,417500,424900,432400,439900,447500,455100,462700,470400,478100,485900,493700,501600,509500,517400,525400,533400,541500,549600,557700,565900,574100,582400,590700,599000,607400,615800,624300,632800,641300,649900,658500,667100,675800,684500,693300,702100,710900,719800,728700,737600,746600,755600,764700,773800,782900,792100,801300,810500,819800,829100,838400,847800,857200,866600,876100,885600,895200,904800,914400,924100,933800,943500,953300,963100,972900,982800,992700,1002600,9999999,9999999,9999999,9999999,9999999,9999999,9999999,9999999,9999999,9999999,9999999,9999999,9999999,9999999,9999999,9999999,9999999,9999999,9999999,9999999,9999999,9999999,9999999,9999999,9999999,9999999,9999999,9999999,9999999,9999999,9999999,9999999,9999999,9999999,9999999,9999999,9999999,9999999,9999999,9999999,9999999,9999999,9999999,9999999,9999999,9999999,9999999,9999999,9999999,9999999,9999999,9999999,9999999,9999999,9999999,9999999,9999999,9999999,9999999,9999999,9999999,9999999,9999999,9999999,9999999,9999999,9999999,9999999];
+var level = [1,4,7,10,13,15,17,18,20,21,23,24,25,27,28,29,30,31,32,33,34,35,36,37,38,38,39,40,41,42,42,43,44,45,45,46,47,47,48,49,49,50,51,51,52,53,53,54,54,55,56,56,57,57,58,58,59,60,60,61,61,62,62,63,63,64,64,65,65,66,66,67,67,68,68,69,69,70,70,71,71,72,72,72,73,73,74,74,75,75,76,76,76,77,77,78,78,79,79,79,80,80,81,81,81,82,82,83,83,83,84,84,85,85,85,86,86,86,87,87,88,88,88,89,89,89,90,90,91,91,91,92,92,92,93,93,93,94,94,94,95,95,96,96,96,97,97,97,98,98,98,99,99,99,100,999,999,999,999,999,999,999,999,999,999,999,999,999,999,999,999,999,999,999,999,999,999,999,999,999,999,999,999,999,999,999,999,999,999,999,999,999,999,999,999,999,999,999,999,999,999,999,999,999,999,999,999,999,999,999,999,999,999,999,999,999,999,999,999,999,999,999,999,999,999,999,999,999,999,999,999,999,999,999,999,999,999,999,999,999,999,999,999,999,999,999,999,999,999,999,999,999,999,999,999,999,999,999,999,999,999,999,999,999,999,999,999,999,999,999,999,999,999,999,999,999,999,999,999,999,999,999,999,999,999,999,999,999,999,999,999,999,999,999,999,999,999,999,999,999,999,999,999,999,999,999,999,999,999,999,999,999,999,999,999,999,999,999,999,999,999,999,999,999,999,999,999,999,999,999,999,999,999,999,999,999,999,999,999,999,999,999,999,999,999,999,999,999,999,999,999];
+var xpForNext = [8,25,12,131,544,596,832,159,761,148,1224,725,276,2152,1889,1700,1591,1568,1637,1804,2075,2456,2953,3572,4319,519,1400,2421,3588,4907,707,2184,3825,5636,1136,3123,5292,592,2949,5500,600,3351,6308,1208,4377,7764,2464,6075,675,4516,8593,2993,7312,1612,6179,379,5200,10281,4281,9628,3528,9147,2947,8844,2544,8725,2325,8796,2296,9063,2463,9532,2832,10209,3409,11100,4200,12211,5211,13548,6448,15117,7917,717,9724,2424,11775,4375,14076,6576,16633,9033,1433,11852,4152,14939,7139,18300,10400,2500,14041,6041,17968,9868,1768,14087,5887,18604,10304,2004,15125,6725,20256,11756,3256,17203,8603,3,14372,5672,20469,11669,2869,18100,9200,300,15971,6971,23088,13988,4888,21457,12257,3057,20084,10784,1484,18975,9575,175,18136,8636,27073,17473,7873,26792,17092,7392,26799,16999,7199,27100,17200,7300,27701,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
 var mainBotChannel = "adh-5b5393f9514b3c25ab71";
 var roughCombatRoom = "adh-730b2671384a88f6e578";
 var ryonaRoom = "adh-307180dac01a9a44d5bc";
+var velvetCuff = "adh-a939d812e433438746b8";
 
 module.exports = function (parent, chanName) {
     fChatLibInstance = parent;
@@ -44,8 +45,12 @@ module.exports = function (parent, chanName) {
 		fChatLibInstance.sendPrivMessage(data.character, generar_ayuda());
 	}
 	
-	cmdHandler.meow = function (args, data) {
-		fChatLibInstance.sendMessage("Meow! You are a "+users[data.character].gender+", and your status is "+users[data.character].status+", "+users[data.character].statusMessage, channel);
+	//cmdHandler.meow = function (args, data) {
+		//fChatLibInstance.sendMessage("Meow! You are a "+users[data.character].gender+", and your status is "+users[data.character].status+", "+users[data.character].statusMessage, channel);
+	//}
+	
+	cmdHandler.version = function (args, data) {
+		fChatLibInstance.sendMessage("feb 28th", character);
 	}
 	
 	//****************************
@@ -55,19 +60,25 @@ module.exports = function (parent, chanName) {
 	// !bf_debuggy cmdHandler.ready("",{character:"Lyanna Pelon"})
 	
 	cmdHandler.bf_debuggy = function (args, data) {
-		if (data.character != "Kenia Nya" && data.character != "Darent" && data.character != "Ken the Wildcat" && data.character != "Netrunner Cibo") { return 0; }
-		let result = eval(args);
-		if (typeof result === 'undefined') { result = "Nothing to say"; }
-		if (typeof result !== 'string') { result = JSON.stringify(result); }
-		if (data.publico == false) {
-			fChatLibInstance.sendPrivMessage(data.character, result);
-		} else {
-			fChatLibInstance.sendMessage(result, channel);
+		if (data.character != "Kenia Nya" && data.character != "Ken the Wildcat" && data.character != "Sexfighter gladiator" && data.character != "Ken the Wildcat") { return 0; }
+		try {
+			let result = eval(args);
+			if (typeof result === 'undefined') { result = "Nothing to say"; }
+			if (typeof result !== 'string') { result = JSON.stringify(result); }
+			if (data.publico == false) {
+				fChatLibInstance.sendPrivMessage(data.character, result);
+			} else {
+				fChatLibInstance.sendMessage(result, channel);
+			}
+		}
+		catch (e) {
+			console.log(e);
+			fChatLibInstance.sendPrivMessage(data.character, "error...");
 		}
 	}
 	
 	cmdHandler.forceCrit = function (args, data) {
-		if (data.character != "Kenia Nya" && data.character != "Darent" && data.character != "Ken the Wildcat") { return 0; }
+		if (data.character != "Kenia Nya" && data.character != "Ken the Wildcat" && data.character != "Sexfighter gladiator") { return 0; }
 		Combate.forceCrit();
 		fChatLibInstance.sendPrivMessage(data.character, "Crit forced.");
 	}
@@ -83,7 +94,7 @@ module.exports = function (parent, chanName) {
 	}
 	
 	cmdHandler.viewsheet = function (args, data) {
-		if (data.character != "Kenia Nya" && data.character != "Darent" && data.character != "Ken the Wildcat") { return 0; }
+		if (data.character != "Kenia Nya" && data.character != "Ken the Wildcat" && data.character != "Sexfighter gladiator") { return 0; }
 		client.hgetall(args, function (err, chara) {
 			if (chara == null) {
 				fChatLibInstance.sendPrivMessage(data.character, args + " wasn't found."); return 0;
@@ -95,7 +106,7 @@ module.exports = function (parent, chanName) {
 	}
 	
 	cmdHandler.viewcard = function (args, data) {
-		if (data.character != "Kenia Nya" && data.character != "Darent" && data.character != "Ken the Wildcat") { return 0; }
+		if (data.character != "Kenia Nya" && data.character != "Ken the Wildcat" && data.character != "Sexfighter gladiator") { return 0; }
 		client.hgetall(args, function (err, chara) {
 			if (chara == null) {
 				fChatLibInstance.sendPrivMessage(data.character, args + " wasn't found."); return 0;
@@ -107,7 +118,7 @@ module.exports = function (parent, chanName) {
 	}
 	
 	cmdHandler.viewbotstatus = function (args, data) {
-		if (data.character != "Kenia Nya" && data.character != "Darent" && data.character != "Ken the Wildcat") { return 0; }
+		if (data.character != "Kenia Nya" && data.character != "Ken the Wildcat" && data.character != "Sexfighter gladiator") { return 0; }
 		let message = "People training: ";
 		let personas = Object.keys(gyms);
 		for (let i = 0; i < personas.length; i++) {
@@ -126,7 +137,9 @@ module.exports = function (parent, chanName) {
 	}
 	
 	cmdHandler.catpower = function (args, data) {
-		if (data.character != "Kenia Nya") { fChatLibInstance.sendMessage("/me [color=red]SPANKS[/color] "+data.character+"'s butt really hard, leaving a big red mark. [color=yellow]'Uh-uh, only the cat mistress can use this command!'[/color]",channel); return 0; }
+		let catpowers = ["Kenia Nya","Rin Loveheart","Proud Mary","Roy Church","Sexfighter gladiator","Ken the Wildcat"];
+		if (catpowers.indexOf(data.character) == -1) { fChatLibInstance.sendMessage("/me [color=red]SPANKS[/color] "+data.character+"'s butt really hard, leaving a big red mark. [color=yellow]'Uh-uh, only the cat mistress can use this command!'[/color]",channel); return 0; }
+		//if (data.character != "Kenia Nya") { fChatLibInstance.sendMessage("/me [color=red]SPANKS[/color] "+data.character+"'s butt really hard, leaving a big red mark. [color=yellow]'Uh-uh, only the cat mistress can use this command!'[/color]",channel); return 0; }
 		let arr = args.split(' to ');
 		let cantidad = parseInt(arr[0]);
 		let destiny = meow2(arr[1]);
@@ -155,6 +168,38 @@ module.exports = function (parent, chanName) {
 		});
 	}
 	
+	cmdHandler.stattransfer = function (args, data) { // !stattransfer attack on fingers from Kenia Nya to Darent
+		if (fChatLibInstance.roomMods[channel].indexOf(data.character) == -1) { return 0; } //checar si el usuario es mod
+		let error = "Incorrect format, the correct way to do it is like this: !stattransfer attack on fingers from Kenia Nya to Darent";
+		let part1 = args.split(' from ');
+		if (part1.length != 2) { fChatLibInstance.sendMessage(error, channel); return 0; }
+		let part2 = part1[0].split(' on ');
+		let part3 = part1[1].split(' to ');
+		if (part2.length != 2) { fChatLibInstance.sendMessage(error, channel); return 0; }
+		if (part3.length != 2) { fChatLibInstance.sendMessage(error, channel); return 0; }
+		let atkORdef = part2[0];
+		let bodypart = part2[1];
+		let giver = part3[0];
+		let receiver = part3[1];
+		if (atkORdef != "attack" && atkORdef != "defense") { fChatLibInstance.sendMessage(error, channel); return 0; }
+		let atkORdef2 = "";
+		if (atkORdef == "attack") { atkORdef2 = "atk"; } else { atkORdef2 = "def"; }
+		if (bodypart != "lips" && bodypart != "fingers" && bodypart != "tits" && bodypart != "sex" && bodypart != "ass" && bodypart != "feet") { fChatLibInstance.sendMessage(error, channel); return 0; }
+		let stat = atkORdef2+bodypart;
+		
+		client.hgetall(giver, function (err, data1) {
+			if (data1 == null) { fChatLibInstance.sendMessage("The giver ("+giver+") wasn't found!", channel); return 0; }
+			client.hgetall(receiver, function (err, data2) {
+				if (data2 == null) { fChatLibInstance.sendMessage("The receiver ("+receiver+") wasn't found!", channel); return 0; }
+				data1[stat] = parseInt(data1[stat]) - 1;
+				data2[stat] = parseInt(data2[stat]) + 1;
+				client.hmset(data1.name, data1);
+				client.hmset(data2.name, data2);
+				fChatLibInstance.sendMessage("[color=cyan]"+data2.name+" has stolen a point of "+atkORdef+" on "+bodypart+" from "+data1.name+"![/color]", channel);
+			});
+		});
+	}
+	
 	//****************************
 	//User commands
 	//****************************
@@ -170,6 +215,11 @@ module.exports = function (parent, chanName) {
 		}
 		if (destiny == undefined) {
 			let message = "You must specify a recipient. Example: !sendmoney 3 to Kenia Nya";
+			data.publico ? fChatLibInstance.sendMessage(message, channel) : fChatLibInstance.sendPrivMessage(data.character, message);
+			return 0;
+		}
+		if (destiny == data.character) {
+			let message = "You can't send money to yourself!";
 			data.publico ? fChatLibInstance.sendMessage(message, channel) : fChatLibInstance.sendPrivMessage(data.character, message);
 			return 0;
 		}
@@ -202,6 +252,17 @@ module.exports = function (parent, chanName) {
 				}
 				data.publico ? fChatLibInstance.sendMessage(message, channel) : fChatLibInstance.sendPrivMessage(data.character, message);
 			});
+		});
+	}
+	
+	cmdHandler.copymeowmeow = function (args, data) {
+		users = args.split(" to ");
+		client.hgetall(users[0], function (err, chara) {
+			if (chara == null) { fChatLibInstance.sendPrivMessage(data.character, "not found"); return 0; }
+			chara.name = users[1];
+			chara.stageName = users[1];
+			client.hmset(users[1], chara);
+			fChatLibInstance.sendPrivMessage(data.character, "copied!");
 		});
 	}
 	
@@ -340,8 +401,8 @@ module.exports = function (parent, chanName) {
 	}
 	
 	cmdHandler.sell = function (args, data) {
-		if (data.character == "ErotiClaire") { return 0; }
-		if (data.character == "Adaria Ignissia") { return 0; }
+		//if (data.character == "ErotiClaire") { return 0; }
+		//if (data.character == "Adaria Ignissia") { return 0; }
 		client.hgetall(data.character, function (err, chara) {
 			if (chara == null) {
 				let message = "You're not registered (or come from season one), use !register to join the club or !transfer to bring your character to the new season.";
@@ -361,8 +422,8 @@ module.exports = function (parent, chanName) {
 	}
 	
 	cmdHandler.sellAll = function (args, data) {
-		if (data.character == "ErotiClaire") { return 0; }
-		if (data.character == "Adaria Ignissia") { return 0; }
+		//if (data.character == "ErotiClaire") { return 0; }
+		//if (data.character == "Adaria Ignissia") { return 0; }
 		client.hgetall(data.character, function (err, chara) {
 			if (chara == null) {
 				let message = "You're not registered (or come from season one), use !register to join the club or !transfer to bring your character to the new season.";
@@ -387,8 +448,8 @@ module.exports = function (parent, chanName) {
 	}
 	
 	cmdHandler.equip = function (args, data) {
-		if (data.character == "ErotiClaire") { return 0; }
-		if (data.character == "Adaria Ignissia") { return 0; }
+		//if (data.character == "ErotiClaire") { return 0; }
+		//if (data.character == "Adaria Ignissia") { return 0; }
 		client.hgetall(data.character, function (err, chara) {
 			if (chara == null) {
 				let message = "You're not registered (or come from season one), use !register to join the club or !transfer to bring your character to the new season.";
@@ -423,8 +484,8 @@ module.exports = function (parent, chanName) {
 	}
 	
 	cmdHandler.unequip = function (args, data) {
-		if (data.character == "ErotiClaire") { return 0; }
-		if (data.character == "Adaria Ignissia") { return 0; }
+		//if (data.character == "ErotiClaire") { return 0; }
+		//if (data.character == "Adaria Ignissia") { return 0; }
 		client.hgetall(data.character, function (err, chara) {
 			if (chara == null) {
 				let message = "You're not registered (or come from season one), use !register to join the club or !transfer to bring your character to the new season.";
@@ -478,8 +539,8 @@ module.exports = function (parent, chanName) {
 	}
 	
 	cmdHandler.resetcharacter = function (args, data) {
-		if (data.character == "ErotiClaire") { return 0; }
-		if (data.character == "Adaria Ignissia") { return 0; }
+		//if (data.character == "ErotiClaire") { return 0; }
+		//if (data.character == "Adaria Ignissia") { return 0; }
 		client.hgetall(data.character, function (err, chara) {
 			let message = "Register first.";
 			if (chara != null) {
@@ -648,6 +709,7 @@ module.exports = function (parent, chanName) {
 	
 	cmdHandler.daily = function (args, data) { cmdHandler.dailyreward(args, data); }
 	cmdHandler.dailyreward = function (args, data) {
+		//if (data.character == "ErotiClaire") { return 0; }
 		client.hgetall(data.character, function (err, chara) {
 			if (chara != null) {
 				let pj = new Personaje(chara)
@@ -676,6 +738,7 @@ module.exports = function (parent, chanName) {
 	
 	cmdHandler.riskydaily = function (args, data) { cmdHandler.riskydailyreward(args, data); }
 	cmdHandler.riskydailyreward = function (args, data) {
+		//if (data.character == "ErotiClaire") { return 0; }
 		client.hgetall(data.character, function (err, chara) {
 			if (chara != null) {
 				let pj = new Personaje(chara)
@@ -705,8 +768,8 @@ module.exports = function (parent, chanName) {
 	}
 	
 	cmdHandler.rename = function (args, data) {
-		if (data.character == "ErotiClaire") { return 0; }
-		if (data.character == "Adaria Ignissia") { return 0; }
+		//if (data.character == "ErotiClaire") { return 0; }
+		//if (data.character == "Adaria Ignissia") { return 0; }
 		let arr = args.split(' to ');
 		if (arr.length < 2) {
 			let message = "You need to put the name of the current item followed by 'to' and the new name (you can add flavor text using a $ at the end of the name) Example: !rename light hand sextoy to basic egg vibrator $ Small and pink";
@@ -791,8 +854,8 @@ module.exports = function (parent, chanName) {
 	}
 	
 	cmdHandler.equiploadout = function (args, data) {
-		if (data.character == "ErotiClaire") { return 0; }
-		if (data.character == "Adaria Ignissia") { return 0; }
+		//if (data.character == "ErotiClaire") { return 0; }
+		//if (data.character == "Adaria Ignissia") { return 0; }
 		client.hgetall(data.character, function (err, chara) { if (chara == null) { let message = "You're not registered (or come from season one), use !register to join the club or !transfer to bring your character to the new season."; data.publico ? fChatLibInstance.sendMessage(message, channel) : fChatLibInstance.sendPrivMessage(data.character, message); return 0; }
 			let pj = new Personaje(chara);
 			let result = pj.equipLoadout(args);
@@ -877,8 +940,8 @@ module.exports = function (parent, chanName) {
 	}
 	
 	cmdHandler.domsub = function (args, data) {
-		if (data.character == "ErotiClaire") { return 0; }
-		if (data.character == "Adaria Ignissia") { return 0; }
+		//if (data.character == "ErotiClaire") { return 0; }
+		//if (data.character == "Adaria Ignissia") { return 0; }
 		if (args != "dom" && args != "sub" && args != "switch" && args != "competitive" && args != "toy") {
 			let message = "Invalid options. You can choose dom (+2), sub (-2), toy (-4), switch (+0) or competitive (no modifier for your opponent)";
 			data.publico ? fChatLibInstance.sendMessage(message, channel) : fChatLibInstance.sendPrivMessage(data.character, message);
@@ -1043,7 +1106,34 @@ module.exports = function (parent, chanName) {
 						if (looking.length > 0) { message += "[user]"; }
 						message += looking.join("[/user], [user]");
 						if (looking.length > 0) { message += "[/user]\n[color=yellow]You can set yourself as looking for a match using[/color] !look [color=yellow]or stop looking for a match using[/color] !stoplook"; }
-						fChatLibInstance.sendMessage(message, channel);
+						//fChatLibInstance.sendMessage(message, channel);
+						data.publico ? fChatLibInstance.sendMessage(message, channel) : fChatLibInstance.sendPrivMessage(data.character, message);
+					}
+				});
+			}
+		});
+	}
+	
+	cmdHandler.lookingsecretmeow = function (args, data) {
+		client.send_command("scan", ["0", "count", "10000"], function(err, reply) {
+			if (reply == null) { console.log("Error! "+err); return 0; }
+			//console.log(reply[1].join(", "));
+			let userList = reply[1];
+			let looking = [];
+			for (let i = 0; i < userList.length; i++) {
+				
+				client.hgetall(userList[i], function (err, chara) {
+					if (chara == null) { console.log("Error at "+userList[i]); return 0; }
+					if (chara.looking == "yes") {
+						looking.push(userList[i]);
+					}
+					if (i == (userList.length - 1)) {
+						if (looking.length == 0) { fChatLibInstance.sendMessage("[b][color=yellow]Sadly, nobody is looking for a match right now... you can be the first one, use[/color] !look [color=yellow]to set yourself as looking![/color][/b]", channel); return 0; }
+						let message = "[b][color=green]Online users looking for a match:[/color][/b]\n";
+						if (looking.length > 0) { message += "[user]"; }
+						message += looking.join("[/user], [user]");
+						if (looking.length > 0) { message += "[/user]\n[color=yellow]You can set yourself as looking for a match using[/color] !look [color=yellow]or stop looking for a match using[/color] !stoplook"; }
+						fChatLibInstance.sendPrivMessage(data.character, message);
 					}
 				});
 			}
@@ -1069,12 +1159,13 @@ module.exports = function (parent, chanName) {
 		fChatLibInstance.sendMessage(Combate.changeMode(), channel);
 	}
 	
-	/*cmdHandler.toggleBetting = function (args, data) {
+	cmdHandler.toggleBetting = function (args, data) {
 		if (Combate.started == false) { fChatLibInstance.sendMessage("There's no match going on.", channel); return 0; }
 		if (data.character != Combate.actores[0].name && data.character != Combate.actores[1].name) { fChatLibInstance.sendMessage("Only the participants of this match can toggle betting on and off.", channel); return 0; }
+		if (Combate.even == false) { fChatLibInstance.sendMessage("You can only toggle betting on a !readyeven match, sorry", channel); return 0; }
 		fChatLibInstance.sendMessage(Combate.toggleBetting(), channel);
 		fChatLibInstance.sendMessage("[color=yellow]Okay folks, the Betting is open for this match, place your bets now and once they go past their 4th post for the Match no more bets can be placed, I will even say that if you post after their 4th post, other then that please try not to interrupt them during their match. Thank you~[/color]", channel);
-	}*/
+	}
 	
 	cmdHandler.toggleCrits = function (args, data) {
 		if (Combate.started == false) { fChatLibInstance.sendMessage("There's no match going on.", channel); return 0; }
@@ -1105,6 +1196,7 @@ module.exports = function (parent, chanName) {
 		let arr = args.split(" to ");
 		if (arr.length != 2) {fChatLibInstance.sendMessage("Incorrect spelling, remember to add 'to', like this: !bet 10 to Kenia Nya", channel); return 0; }
 		let cantidad = arr[0];
+		if (cantidad > 50) { fChatLibInstance.sendMessage("You can't bet over $50, sorry", channel); return 0; }
 		let persona = arr[1];
 		if (Combate.actores[0].name != persona && Combate.actores[1].name != persona) { fChatLibInstance.sendMessage(persona + " wasn't found in the current match.", channel); return 0; }
 		if (isNaN(cantidad) || cantidad < 1) { fChatLibInstance.sendMessage("Betting amount should be a positive number.", channel); return 0; }
@@ -1158,9 +1250,11 @@ module.exports = function (parent, chanName) {
 		fChatLibInstance.sendMessage("/me [color=yellow]grabs Adaria Ignissia by her nose and mouth hook and walks up to "+data.character+", pushing Adaria down to her knees, hands behind her back and face looking up, ready to be facesat~[/color]", channel);
 	}
 	
+	/*
 	cmdHandler.callwaitress = function (arga, data) {
 		fChatLibInstance.sendMessage("[color=yellow]ErotiClaire's pussy vibrators turn on, signaling her to come to "+data.character+" and offer them a drink...[/color] [color=pink][sub]The vibrators will stay on until she obeys~[/sub][/color]", channel);
 	}
+	*/
 	
 	cmdHandler.callgirlywaitress = function (arga, data) {
 		fChatLibInstance.sendMessage("[color=yellow]Robert Delight's ass vibrators turn on, signaling her to come to "+data.character+" and offer them a drink...[/color] [color=pink][sub]The vibrators will stay on until she obeys~[/sub][/color]", channel);
@@ -1186,6 +1280,7 @@ module.exports = function (parent, chanName) {
 			let messages = Combate.addActor(pj, hp, team);
 			fChatLibInstance.sendMessage(messages[0], channel);
 			if (messages[1] != "") { fChatLibInstance.sendMessage(messages[1], channel); }
+			Combate.even = false;
 		});
 	}
 	
@@ -1227,6 +1322,7 @@ module.exports = function (parent, chanName) {
 			let messages = Combate.addActor(pj, hp, team);
 			fChatLibInstance.sendMessage(messages[0], channel);
 			if (messages[1] != "") { fChatLibInstance.sendMessage(messages[1], channel); }
+			Combate.even = true;
 		});
 	}
 	
@@ -1235,7 +1331,14 @@ module.exports = function (parent, chanName) {
 	cmdHandler.kiss = function (args, data) { cmdHandler.attack("lips to lips "+args, data); }
 	cmdHandler.kisses = function (args, data) { cmdHandler.attack("lips to lips "+args, data); }
 	cmdHandler.fuck = function (args, data) { cmdHandler.attack("sex to sex "+args, data); }
-	cmdHandler.spank = function (args, data) { cmdHandler.attack("hands to butt "+args, data); }
+	cmdHandler.spank = function (args, data) {
+		cmdHandler.attack("hands to butt "+args, data);
+		let name = args.split('to ')[1];
+		name = meow2(name);
+		if (name == "Bot Announcer") {
+			fChatLibInstance.sendMessage('/me giggles and wiggles her fat butt! "oohhh~~"', channel);
+		}
+	}
 	cmdHandler.rimjob = function (args, data) { cmdHandler.attack("tongue to ass "+args, data); }
 	cmdHandler.sexymoves = function (args, data) { cmdHandler.attack("body to sight "+args, data); }
 	cmdHandler.dance = function (args, data) { cmdHandler.attack("body to sight "+args, data); }
@@ -1260,7 +1363,7 @@ module.exports = function (parent, chanName) {
 	cmdHandler.earrub = function (args, data) { cmdHandler.attack("finger to ear "+args, data); }
 	cmdHandler.breed = function (args, data) { cmdHandler.attack("sex to sex "+args, data); }
 	cmdHandler.trib = function (args, data) { cmdHandler.attack("pussy to pussy "+args, data); }
-	cmdHandler.grind = function (args, data) { cmdHandler.attack("pussy to pussy "+args, data); }
+	cmdHandler.grind = function (args, data) { cmdHandler.attack("sex to sex "+args, data); }
 	cmdHandler.scissor = function (args, data) { cmdHandler.attack("pussy to pussy "+args, data); }
 	cmdHandler.swordfight = function (args, data) { cmdHandler.attack("cock to cock "+args, data); }
 	cmdHandler.thrust = function (args, data) { cmdHandler.attack("sex to sex "+args, data); }
@@ -1286,7 +1389,7 @@ module.exports = function (parent, chanName) {
 	cmdHandler.toyfuck = function (args, data) { cmdHandler.attack("sextoy to sex "+args, data); }
 	cmdHandler.toyanal = function (args, data) { cmdHandler.attack("sextoy to ass "+args, data); }
 	cmdHandler.toyspank = function (args, data) { cmdHandler.attack("sextoy to butt "+args, data); }
-	cmdHandler.wedgie = function (args, data) { cmdHandler.attack("pull to panties "+args, data); }
+	cmdHandler.wedgie = function (args, data) { cmdHandler.attack("pull to panties behind "+args, data); }
 	cmdHandler.nuzzle = function (args, data) { cmdHandler.attack("cheek to cheek "+args, data); }
 	cmdHandler.headbutt = function (args, data) { cmdHandler.attack("head to head "+args, data); }
 	cmdHandler.suplex = function (args, data) { cmdHandler.attack("body to body "+args, data); }
@@ -1336,6 +1439,28 @@ module.exports = function (parent, chanName) {
 	cmdHandler.atomicdrop = function (args, data) { cmdHandler.attack("knee to balls "+args, data); }
 	cmdHandler.teabag = function (args, data) { cmdHandler.attack("balls to face "+args, data); }
 	cmdHandler.ballhat = function (args, data) { cmdHandler.attack("balls to head "+args, data); }
+	cmdHandler.facesit = function (args, data) { cmdHandler.attack("ass to face "+args, data); }
+	//cmdHandler.supercuddles = function (args, data) { Combate.forceCrit(); cmdHandler.attack("cuddles to body "+args, data); }
+	cmdHandler.fellatio = function (args, data) { cmdHandler.attack("mouth to sex "+args, data); }
+	cmdHandler.asshat = function (args, data) { cmdHandler.attack("ass to head "+args, data); }
+	
+	cmdHandler.snuggle = function (args, data) { cmdHandler.attack("body to body "+args, data); }
+	cmdHandler.snuggles = function (args, data) { cmdHandler.attack("body to body "+args, data); }
+	
+	cmdHandler.fingerblast = function (args, data) { cmdHandler.attack("fingers to pussy "+args, data); }
+	cmdHandler.fingerblass = function (args, data) { cmdHandler.attack("fingers to ass "+args, data); }
+	
+	cmdHandler.coil = function (args, data) { cmdHandler.attack("tail to body "+args, data); }
+	
+	cmdHandler.breastfeed = function (args, data) { cmdHandler.attack("milk to mouth "+args, data); }
+	cmdHandler.nurse = function (args, data) { cmdHandler.attack("milk to mouth "+args, data); }
+	cmdHandler.justice = function (args, data) { cmdHandler.attack("I have to no idea "+args, data); }
+	
+	cmdHandler.tacobell = function (args, data) { cmdHandler.attack("eat to pussy "+args, data); }
+	cmdHandler.slam = function (args, data) { cmdHandler.attack("body to body "+args, data); }
+	
+	cmdHandler.chanclazo = function (args, data) { cmdHandler.attack("chancla to butt "+args, data); }
+	cmdHandler.spit = function (args, data) { cmdHandler.attack("saliva to mouth "+args, data); }
 	
 	cmdHandler.attack = function (args, data) {
 		args = args.trim();
@@ -1347,6 +1472,7 @@ module.exports = function (parent, chanName) {
 				let destiny = arr[1];
 				let attacker = data.character;
 				let defendant = meow2(arr[2]);
+				if (defendant == "me") { defendant = attacker; }
 				if (arr.length != 3) { fChatLibInstance.sendMessage("You must put !attack bodypart to bodypart to person's name", channel); return 0; }
 				tempCombate.reset();
 				tempCombate.turnCount = 2;
@@ -1369,7 +1495,7 @@ module.exports = function (parent, chanName) {
 						tempPj2 = new Personaje(chara2);
 						tempCombate.addActor2(tempPj2);
 						tempCombate.startFight();
-						let message = tempCombate.attack(origin, destiny, "meow to meow", data.character, true);
+						let message = tempCombate.attack(origin, destiny, "meow to meow", data.character, true, undefined, scores[data.character]);
 						fChatLibInstance.sendMessage(message, channel);
 						tempCombate.reset();
 						return 0;
@@ -1393,7 +1519,7 @@ module.exports = function (parent, chanName) {
 						return 0;
 					}
 					tempPj1 = new Personaje(chara1);
-					let message = Combate.attack(origin, destiny, "meow to meow", defendant, false, tempPj1);
+					let message = Combate.attack(origin, destiny, "meow to meow", defendant, false, tempPj1, scores[data.character]);
 					fChatLibInstance.sendMessage(message, channel);
 					if (Combate.started == false) { //si un participante o equipo perdió...
 						if (Combate.teamsf == false) {
@@ -1453,6 +1579,7 @@ module.exports = function (parent, chanName) {
 				let destiny = arr[1];
 				let letra = "meow to meow";
 				if (arr.length == 3) { letra = arr[2]; }
+				//console.log("score in attack: "+scores[data.character]);
 				let message = Combate.attack(origin, destiny, letra, data.character, false, undefined, scores[data.character]);
 				fChatLibInstance.sendMessage(message, channel);
 			}
@@ -1597,7 +1724,7 @@ module.exports = function (parent, chanName) {
 	cmdHandler.cum = function (args, data) { cmdHandler.giveup(args, data); }
 	cmdHandler.tapout = function (args, data) { cmdHandler.giveup(args, data); }
 	cmdHandler.giveup = function (args, data) {
-		if (data.character == "ErotiClaire") { return 0; }
+		//if (data.character == "ErotiClaire") { return 0; }
 		if (data.publico) {
 			if (Combate.started == false) { fChatLibInstance.sendMessage("Combat hasn't started yet.", channel); return 0; }
 			if (!Combate.activeActor(data.character) && data.character != "Kenia Nya") { fChatLibInstance.sendMessage("It's not your turn.", channel); return 0; }
@@ -1659,7 +1786,7 @@ module.exports = function (parent, chanName) {
 			if (gyms[data.character] == undefined) { return 0; }
 			
 			let resultado_logica = logica_dummy(data, "lips", "lips");
-			let message = "\n[icon]Bot Announcer[/icon][color=gray]" + Combate.actores[0].name + " has given up and/or climaxed earlier! The loser gets nothing, thank you for participating.[/color]";
+			let message = "\n[icon]Bot Announcer[/icon][color=gray]" + gyms[data.character].actores[0].name + " has given up and/or climaxed earlier! The loser gets nothing, thank you for participating.[/color]";
 			message += "\n[color=gray]════════════════ ⭐ [color=purple]Training ended[/color] ⭐ ════════════════[/color]\n";
 			message += resultado_logica.win;
 			delete gyms[data.character];
@@ -1668,7 +1795,7 @@ module.exports = function (parent, chanName) {
 	}
 	
 	cmdHandler.endfight = function (args, data) {
-		if (data.character == "ErotiClaire") { return 0; }
+		//if (data.character == "ErotiClaire") { return 0; }
 		if (data.publico) {
 			if (Combate.started == true) {
 				let actors = []
@@ -2213,8 +2340,9 @@ module.exports = function (parent, chanName) {
 	
 	fChatLibInstance.addMessageListener( function (parent, data) {
 		if (data.channel != channel) { return 0; }
+		if (data.message[0] == "!") { return 0; }
 		let s = score(data.message);
-		//console.log(s);
+		//console.log("score in bf: " + s);
 		scores[data.character] = s;
 	});
 	
@@ -2224,6 +2352,11 @@ module.exports = function (parent, chanName) {
 	}
 	
 	if (channel == ryonaRoom) {
+		tempCombate.changeMode();
+		Combate.changeMode();
+	}
+	
+	if (channel == velvetCuff) {
 		tempCombate.changeMode();
 		Combate.changeMode();
 	}
@@ -2782,6 +2915,5 @@ function score(text) {
 		if (unicas[i].length > masgrande) { masgrande = unicas[i].length; }
 	}
 	
-	let score = unicas.length - duplicadas.length + masgrande;
-	return score;
+	return unicas.length - duplicadas.length + masgrande;
 }

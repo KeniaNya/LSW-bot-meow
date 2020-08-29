@@ -77,7 +77,7 @@ items.push({id: 303,	name: "Nipple clamps",		slot: "flavor",		Gold: 1,	deftits: 
 items.push({id: 304,	name: "Crotch tattoo female",slot: "flavor",		Gold: 1,	defsex: -1, flavor: "It says 'Cum Dump', female intended"	});
 items.push({id: 305,	name: "Crotch tattoo male",	slot: "flavor",		Gold: 1,	defsex: -1, flavor: "It says 'Sissy', male intended"		});
 items.push({id: 318,	name: "Vibrating underwear",slot: "flavor",		Gold: 2, 	defsex: -2, flavor: "Bzzz~"		});
-items.push({id: 306,	name: "Leash, collar and bullet vibrator inside the pussy! (turned on)",	slot: "flavor",		Gold: 2,	deflips: -2, defass: -2, defsex: -2	}); //eran -1 todas
+items.push({id: 306,	name: "Leash and collar",	slot: "flavor",		Gold: 2	}); //eran -1 todas
 items.push({id: 307,	name: "Anal spreader",		slot: "flavor",		Gold: 2,	defass: -3		});
 items.push({id: 308,	name: "Labial speculum",	slot: "flavor",		Gold: 2,	defsex: -2, flavor: "Female intended"		});
 items.push({id: 309,	name: "Cock cage",			slot: "flavor",		Gold: 2,	defsex: -2, flavor: "Male intended"		});
@@ -92,6 +92,11 @@ items.push({id: 316,	name: "Cock milker",		slot: "flavor",		Gold: 4,	atksex: -3,
 items.push({id: 319,	name: "Crotchless panties",	slot: "flavor",		Gold: 10,	defsex: -3, defass: 3, flavor: "Don't touch my butt!"		});
 items.push({id: 320,	name: "Buttless panties",	slot: "flavor",		Gold: 10,	defsex: 3, defass: -3, flavor: "Uhm... what are you looking at?"		});
 items.push({id: 321,	name: "Sensitivity enhancing cream for feet or paws",	slot: "flavor",		Gold: 3,	deffeet: -3		});
+items.push({id: 322,	name: "Huge sensitive cock",	slot: "flavor",		Gold: 3,	atksex: 3, defsex: -3		});
+items.push({id: 323,	name: "Tarah's slutty ass",	slot: "flavor",		Gold: 5,	defass: -10		});
+items.push({id: 325,	name: "Shinju's intimate piercing",	slot: "flavor",		Gold: 5,	defsex: -10		});
+items.push({id: 326,	name: "Hiroki's Sex Drive",	slot: "flavor",		Gold: 5,	defass: -11, defsex: -6		});
+items.push({id: 324,	name: "Arm binders",		slot: "flavor",		Gold: 10,	atkfingers: -10, deftits: -3, deflips: -3, defsex: -1, defass: -1		});
 
 //items.push({id: 319,	name: "Mecha horde mask",	slot: "flavor",		Gold: 4,	defsex: -1, deftits: -1, defass: -1, deflips: -1, atklips: 4, flavor: "Keeps user's mouth open but makes them more sensitive~"		});
 
@@ -120,6 +125,8 @@ items.push({id: 608,	name: "Ass aphrodisiac",		slot: "bondage",	Gold: 50, turns:
 items.push({id: 609,	name: "Feet Bondage",			slot: "bondage",	Gold: 50, turns: 6,	atkfeet: -10,		flavor: "The attack on feet gets severely decreased for 3 turns"	});
 items.push({id: 610,	name: "Feet aphrodisiac",		slot: "bondage",	Gold: 50, turns: 6,	deffeet: -10,		flavor: "The defense on feet gets severely decreased for 3 turns"	});
 
+items.push({id: 611,	name: "Full body bondage and aphrodisiac combo",			slot: "bondage",	Gold: 999, turns: 12,	atklips: -10, atkfingers: -10, atktits: -10, atkass: -10, atksex: -10, atkfeet: -10, deflips: -10, deffingers: -10, deftits: -10, defass: -10, defsex: -10, deffeet: -10,		flavor: "The attack and defense on all body parts get severely decreased for 6 turns"	});
+
 // ** ENDGAME **
 
 items.push({id: 700,	name: "Ultimate clothes",				slot: "armor",		Gold: 300,	deftits: 4, defsex: 4, defass: 4	});
@@ -133,8 +140,10 @@ items.push({id: 707,	name: "Ultimate lips and feet item",	slot: "item",		Gold: 3
 items.push({id: 708,	name: "God tier clothes",				slot: "armor",		Gold: 1000,	deftits: 5, defsex: 5, defass: 5	});
 items.push({id: 709,	name: "God tier lips and feet item",	slot: "item",		Gold: 1000,	deffeet: 5, deflips: 5, deffingers: 5	});
 items.push({id: 799,	name: "OP hand sextoy",					slot: "weapon",		Gold: 9999,	atkfingers: 20	});
+items.push({id: 796,	name: "OP lips sextoy",					slot: "weapon",		Gold: 9999,	atklips: 20	});
+items.push({id: 795,	name: "OP ass sextoy",					slot: "weapon",		Gold: 9999,	atkass: 20	});
 items.push({id: 798,	name: "ErotiClaire's weak ass and waitress uniform",			slot: "weapon",		Gold: 0,	defass: -10, deflips: -10, deftits: -10, defsex: -10, deffingers: -10, deffeet: -10, flavor: "Use me hard~! I'm definitely a waitress~"	});
-items.push({id: 797,	name: "Adaria's nose and mouth hook",	slot: "weapon",		Gold: 0,	defass: -10, deflips: -20, deftits: -10, defsex: -10, flavor: "It also gives an addiction to ass of +10, please sit on her face~"	});
+items.push({id: 797,	name: "Adaria's nose and mouth hook",	slot: "weapon",		Gold: 0,	defass: -10, deflips: -20, deftits: -10, defsex: -20, flavor: "It also gives an addiction to ass of +10, please sit on her face~"	});
 
 // ** CLASSES **
 items.push({id: 801,	name: "Strawweight",	slot: "class",	Gold: -1,
@@ -143,7 +152,7 @@ items.push({id: 801,	name: "Strawweight",	slot: "class",	Gold: -1,
 items.push({id: 802,	name: "Lightweight",	slot: "class",	Gold: -1,
 			deflips: -1, deffingers: -1, deftits: -1, defsex: -1, defass: -1, deffeet:-1, atkfingers: 1, HP: 10});
 
-items.push({id: 803,	name: "Middleweight",	slot: "class",	Gold: -1, stripchance: 10});
+items.push({id: 803,	name: "Middleweight",	slot: "class",	Gold: -1, stripchance: 15});
 
 items.push({id: 804,	name: "Heavyweight",	slot: "class",	Gold: -1,
 			deflips: 1, deffingers: 1, deftits: 1, defsex: 1, defass: 1, deffeet:1, atkass: 1, HP: -10});
@@ -153,12 +162,17 @@ items.push({id: 805,	name: "Super heavyweight",	slot: "class",	Gold: -1,
 
 
 //***SPECIAL***
-items.push({id: 900,	name: "OP hand sextoy meow meow",	slot: "weapon",		Gold: 0,	atkfingers: 20, atksex: 20, atktits: 20, atklips: 20	});
+items.push({id: 900,	name: "OP hand sextoy meow meow",	slot: "weapon",		Gold: 0,	atkfingers: 25, atklips: 10, atkfeet: 10	});
 items.push({id: 901,	name: "[url=https://static.f-list.net/images/charimage/14401711.jpg]Waitress outfit[/url]",			slot: "armor",		Gold: 0,	defass: -10, deftits: -10, defsex: -10, flavor: "I'm now the official LSW waitress."	});
 items.push({id: 902,	name: "Ballgag, couple of vibrators inside the pussy and nipple clamps",							slot: "weapon",		Gold: 0,	deflips: -10, deffingers: -10, deffeet: -10, flavor: "[b]Do you want a drink?[/b]"	});
 items.push({id: 903,	name: "Drinks tray",																				slot: "item",		Gold: 0,	defass: -10, deftits: -10, defsex: -10, flavor: "With a couple of glasses and bottles of different kinds"	});
-items.push({id: 904,	name: "Special collar and shibari harness",															slot: "flavor",		Gold: 0,	deflips: -10, deffingers: -10, deffeet: -10, flavor: "Text: [color=yellow][b]Kenia's waitress, the object of desire[/b][/color]"	});
+items.push({id: 904,	name: "Special collar and shibari harness",															slot: "flavor",		Gold: 0,	deflips: -10, deffingers: -10, deffeet: -10, flavor: "Text: [color=yellow][b]Kenia's sexpet, the object of desire[/b][/color]"	});
+items.push({id: 905,	name: "[url=https://img.rule34.xxx//samples/2930/sample_979e7c8bc5e5356d4bb56a5f9ce4f6c0.jpg?3273931]Naughty Kitten[/url]", slot: "armor",		Gold: 0,	deflips: -10, deffingers: -10, defass: -5, deftits: -5, defsex: -8, deffeet: -10, flavor: "Such a naughty kitten!"	});
+items.push({id: 906,	name: "Genki's glasses",	slot: "flavor",		Gold: 0,	atkfingers: -30, atkfeet: -30, atklips: -30, atktits: -30, atkass: -30, atksex: -30	});
+items.push({id: 907,	name: "OP flavor item meow meow",	slot: "flavor",		Gold: 0,	atkfingers: 10, atkfeet: 10, atklips: 10, atktits: 10, atkass: 10, atksex: 10, deffingers: 10, deffeet: 10, deflips: 10, deftits: 10, defass: 10, defsex: 10	});
 
+
+// I'd say -10 Def on fingers, -10 Def on lips, -5 Def on ass (because its plugged), -5 def on tits, -8 def on sex and -10 def on feet
 
 
 

@@ -1,4 +1,50 @@
-console.log("ok");
+//console.log("ok");
+
+
+
+var request = require("request");
+
+var appId = "KeniasBestGames";
+var characterId = "Kenia Nya";
+var amount = "1";
+var message = "Meow!";
+
+request.post({ url: "https://api.staging.velvetcuff.me/api/TokenAuth/Authenticate", form: 
+{
+  userNameOrEmailAddress: "kenia",
+  password: "meow123",
+  twoFactorVerificationCode: "string",
+  rememberClient: true,
+  twoFactorRememberClientToken: "string",
+  singleSignIn: true,
+  returnUrl: "string"
+}
+}, function (err, httpResponse, body) {
+	console.log(body);
+	console.log(err);
+	
+	/*
+	var info = JSON.parse(body);
+	var bearerToken = info.accessToken;
+	//console.log(httpResponse);
+	
+	request.post(
+	{ url: "https://api.staging.velvetcuff.me/api/services/velvetcuff/externalapps/"+appId+"/sendmoney/"+characterId+"/"+amount+"/"+message, form: {}, auth: {
+    bearer: bearerToken
+  } },
+	function (err2, httpResponse2, body2) {
+		console.log(body2);
+	}
+	
+);
+	
+*/
+	
+});
+
+
+
+
 
 /* var message = `
 [color=gray]══════════════════════════════════════════════════
@@ -27,7 +73,7 @@ function fixBbcode (message) {
 
  
 console.log(fixBbcode(message)); */
-
+/*
 var meow = "good";
 var nyan = "if it works";
 var pj = {name:"meow"};
@@ -48,3 +94,4 @@ for (let i = 0; i < temp; i++) {
 }
 
 console.log(result);
+*/

@@ -7,7 +7,7 @@
 //*****************************************************************************************************************************************
 
 var requireNew = require('require-new');
-var statTable = [0,0,1,2,4,6,9,13,18,18,18,18,18,18];
+
 
 function Personaje (newChara) {
 	var customObjectArray = [];
@@ -17,41 +17,41 @@ function Personaje (newChara) {
 	this.name = newChara.name;
 	this.stageName = (newChara.stageName === undefined ? newChara.name : newChara.stageName);
 	this.HP = parseInt(newChara.HP);
+	this.sp = readStat(newChara.sp);
 	this.alive = true;
 	this.Gold = parseInt(newChara.Gold);
-	this.sp = (newChara.sp == undefined ? 0 : parseInt(newChara.sp));
 	if (newChara.faction !== undefined) { this.faction = newChara.faction; } else { this.faction = "None yet!"; }
 	
 	this.looking = (newChara.looking == undefined ? "no" : newChara.looking);
 	
 	this.domsub = (newChara.domsub === undefined ? "switch" : newChara.domsub);
-	this.cwins = (newChara.cwins === undefined ? 0 : parseInt(newChara.cwins));
-	this.closes = (newChara.closes === undefined ? 0 : parseInt(newChara.closes));
+	this.cwins = readStat(newChara.cwins);
+	this.closes = readStat(newChara.closes);
 	
-	this.atklips = parseInt(newChara.atklips);
-	this.atkfingers = parseInt(newChara.atkfingers);
-	this.atktits = parseInt(newChara.atktits);
-	this.atksex = parseInt(newChara.atksex);
-	this.atkass = parseInt(newChara.atkass);
-	this.atkfeet = parseInt(newChara.atkfeet);
-	this.deflips = parseInt(newChara.deflips);
-	this.deffingers = (newChara.deffingers === undefined ? 1 : parseInt(newChara.deffingers));
-	this.deftits = parseInt(newChara.deftits);
-	this.defsex  = parseInt(newChara.defsex);
-	this.defass = parseInt(newChara.defass);
-	this.deffeet = (newChara.deffeet === undefined ? 1 : parseInt(newChara.deffeet));
-	this.batklips = parseInt(newChara.atklips);
-	this.batkfingers = parseInt(newChara.atkfingers);
-	this.batktits = parseInt(newChara.atktits);
-	this.batksex = parseInt(newChara.atksex);
-	this.batkass = parseInt(newChara.atkass);
-	this.batkfeet = parseInt(newChara.atkfeet);
-	this.bdeflips = parseInt(newChara.deflips);
-	this.bdeffingers = (newChara.deffingers === undefined ? 1 : parseInt(newChara.deffingers));
-	this.bdeftits = parseInt(newChara.deftits);
-	this.bdefsex  = parseInt(newChara.defsex);
-	this.bdefass = parseInt(newChara.defass);
-	this.bdeffeet = (newChara.deffeet === undefined ? 1 : parseInt(newChara.deffeet));
+	this.atklips = readStat(newChara.atklips);
+	this.atkfingers = readStat(newChara.atkfingers);
+	this.atktits = readStat(newChara.atktits);
+	this.atksex = readStat(newChara.atksex);
+	this.atkass = readStat(newChara.atkass);
+	this.atkfeet = readStat(newChara.atkfeet);
+	this.deflips = readStat(newChara.deflips);
+	this.deffingers = readStat(newChara.deffingers);
+	this.deftits = readStat(newChara.deftits);
+	this.defsex  = readStat(newChara.defsex);
+	this.defass = readStat(newChara.defass);
+	this.deffeet = readStat(newChara.deffeet);
+	this.batklips = readStat(newChara.atklips);
+	this.batkfingers = readStat(newChara.atkfingers);
+	this.batktits = readStat(newChara.atktits);
+	this.batksex = readStat(newChara.atksex);
+	this.batkass = readStat(newChara.atkass);
+	this.batkfeet = readStat(newChara.atkfeet);
+	this.bdeflips = readStat(newChara.deflips);
+	this.bdeffingers = readStat(newChara.deffingers);
+	this.bdeftits = readStat(newChara.deftits);
+	this.bdefsex  = readStat(newChara.defsex);
+	this.bdefass = readStat(newChara.defass);
+	this.bdeffeet = readStat(newChara.deffeet);
 	
 	this.custom = (newChara.custom === undefined ? "" : newChara.custom);
 	if (this.custom != "") {
@@ -81,19 +81,19 @@ function Personaje (newChara) {
 	
 	this.color1 = newChara.color1;
 	this.color2 = newChara.color2;
-	this.lastpost = (newChara.lastpost != undefined ? parseInt(newChara.lastpost) : 0);
+	this.lastpost = readStat(newChara.lastpost);
 	
-	this.lastmoneytransfer = (newChara.lastmoneytransfer != undefined ? parseInt(newChara.lastmoneytransfer) : 0);
-	this.transferedmoney = (newChara.transferedmoney != undefined ? parseInt(newChara.transferedmoney) : 0);
+	this.lastmoneytransfer = readStat(newChara.lastmoneytransfer);
+	this.transferedmoney = readStat(newChara.transferedmoney);
 	
-	this.addlips = (newChara.addlips === undefined ? 0 : parseInt(newChara.addlips));
-	this.addfingers = (newChara.addfingers === undefined ? 0 : parseInt(newChara.addfingers));
-	this.addtits = (newChara.addtits === undefined ? 0 : parseInt(newChara.addtits));
-	this.addsex = (newChara.addsex === undefined ? 0 : parseInt(newChara.addsex));
-	this.addass = (newChara.addass === undefined ? 0 : parseInt(newChara.addass));
-	this.addfeet = (newChara.addfeet === undefined ? 0 : parseInt(newChara.addfeet));
-	this.addbody = (newChara.addbody === undefined ? 0 : parseInt(newChara.addbody));
-	this.addsight = (newChara.addsight === undefined ? 0 : parseInt(newChara.addsight));
+	this.addlips = readStat(newChara.addlips);
+	this.addfingers = readStat(newChara.addfingers);
+	this.addtits = readStat(newChara.addtits);
+	this.addsex = readStat(newChara.addsex);
+	this.addass = readStat(newChara.addass);
+	this.addfeet = readStat(newChara.addfeet);
+	this.addbody = readStat(newChara.addbody);
+	this.addsight = readStat(newChara.addsight);
 	
 	
 	this.calculateAddictions = function() {
@@ -108,14 +108,7 @@ function Personaje (newChara) {
 	}
 	
 	
-	this.weaknesses = 0;
-	this.resistances = 0;
-	if (this.addlips > 0)		{ this.weaknesses += this.addlips; }	else { this.resistances -= this.addlips; }
-	if (this.addfingers > 0)	{ this.weaknesses += this.addfingers; }	else { this.resistances -= this.addfingers; }
-	if (this.addtits > 0)		{ this.weaknesses += this.addtits; }	else { this.resistances -= this.addtits; }
-	if (this.addsex > 0)		{ this.weaknesses += this.addsex; }		else { this.resistances -= this.addsex; }
-	if (this.addass > 0)		{ this.weaknesses += this.addass; }		else { this.resistances -= this.addass; }
-	if (this.addfeet > 0)		{ this.weaknesses += this.addfeet; }	else { this.resistances -= this.addfeet; }
+	this.calculateAddictions();
 	if (this.resistances > this.weaknesses) {
 		this.addlips = 0;
 		this.addfingers = 0;
@@ -126,11 +119,8 @@ function Personaje (newChara) {
 		this.calculateAddictions();
 	}
 	
-	//this.ap = this.addlips + this.addfingers + this.addtits + this.addsex + this.addass + this.addfeet;
-	//this.ap2 = Math.abs(this.addlips) + Math.abs(this.addfingers) + Math.abs(this.addtits) + Math.abs(this.addsex) + Math.abs(this.addass) + Math.abs(this.addfeet);
-	
-	this.wins = (newChara.wins === undefined ? 0 : parseInt(newChara.wins));
-	this.loses = (newChara.loses === undefined ? 0 : parseInt(newChara.loses));
+	this.wins = readStat(newChara.wins);
+	this.loses = readStat(newChara.loses);
 	
 	let names = Object.keys(this.weapon);
 	names.splice(0,4);
@@ -149,9 +139,6 @@ function Personaje (newChara) {
 	for (let i = 0; i < names.length; i++) {
 		this[names[i]] += this.item[names[i]];
 	};
-	
-	//save game!
-	
 	
 	names = Object.keys(this.flavorr);
 	names.splice(0,4);
@@ -584,5 +571,10 @@ function parseStringToIntArray(myString) {
     }
     return myArray;
 }
+
+function readStat(stat) {
+	return stat === undefined ? 0 : parseInt(stat);
+}
+
 
 module.exports = Personaje;

@@ -10,6 +10,8 @@ var requireNew = require('require-new');
 var ajuste = [0,3,5,6,7,8,9,10,10,11,12,12,13,14,14,15,15,16,16,17,17,18,18,19,19,20,20,20,21,21,22,22,23,23,23,24,24,24,25,25,26,26,26,27,27,27,28,28,28,29,29,29,30,30,30];
 var crit = false;
 var icon = "[icon]Bot Announcer[/icon]";
+var recent_players = [];
+var recent_players_time = [];
 
 function Combate() {
 	this.mode = ["please","building them up by","lust","pink","cum","sexfight","SMUTALITY"];
@@ -30,6 +32,7 @@ function Combate() {
 	this.teamsf = false;
 	this.teamturn = ["red","blue"];
 	this.letras = ["A","B","C","D"];
+	this.even = false;
 	
 	this.debug = function() {
 		console.log("Actores: "+this.actores);
@@ -106,7 +109,7 @@ function Combate() {
 		if (this.red.length == 0) { return "Team red is empty."; }
 		if (this.blue.length == 0) { return "Team blue is empty."; }
 		this.initiative();
-		var message = "\n"+icon+"[color=gray] Welcome to the "+this.mode[5]+" ring! Today we have a team match! It's a potential gangbang! Yaay! Let the match begin![/color]";
+		var message = "\n"+icon+" Welcome to the "+this.mode[5]+" ring! Today we have a team match! It's a potential gangbang! Yaay! Let the match begin!";
 		message += this.status();
 		return message;
 	}
@@ -115,7 +118,7 @@ function Combate() {
 		for (var i = 0; i < this.actores.length; i++) { if (actor.name == this.actores[i].name) { return ["Already joined.",""]; } }
 		let rank = getRank(actor.usedstatpoints);
 		var hoja = "\n";
-		hoja += "[color=gray]═════════════ ⭐ [color=purple]"+this.mode[5]+" ring[/color] ⭐ ═════════════\n";		
+		hoja += "[color=cyan]═════════════ ⭐ [color=purple]"+this.mode[5]+" ring[/color] ⭐ ═════════════\n";		
 		if (team == "red" || team == "blue") {
 			if (this.teamsf == false && this.actores.length == 1) {
 				return ["The previous person needs to select a team. Use !endfight to clear the ring and then use !ready team red or !ready team blue",""];
@@ -140,12 +143,12 @@ function Combate() {
 			hoja += " [color=yellow]Starting with "+cantidad+" lust points.[/color]";
 		}
 		actor.maxHP = actor.HP;
-		hoja += "\n          [color=gray]Sextoy: "+actor.weapon.name+", Outfit: "+actor.armor.name+", Accessory: "+actor.item.name+", Other: "+actor.flavorr.name+".[/color]";
+		hoja += "\n          [color=cyan]Sextoy: "+actor.weapon.name+", Outfit: "+actor.armor.name+", Accessory: "+actor.item.name+", Other: "+actor.flavorr.name+".[/color]";
 		this.actores.push(actor);
 		var messages = [hoja, ""];
 		if (this.actores.length == 2 && this.teamsf == false) {
 			this.initiative();
-			var message = "\n"+icon+"[color=gray] Welcome to the "+this.mode[5]+" ring! Tonight it's " + this.actores[0].stageName + " vs " + this.actores[1].stageName + ", Who will hold out, and who will end up in a pool of their own spunk? Let's find out... now![/color]";
+			var message = "\n"+icon+"[color=cyan] Welcome to the "+this.mode[5]+" ring! Tonight it's " + this.actores[0].stageName + " vs " + this.actores[1].stageName + ", Who will hold out, and who will end up in a pool of their own spunk? Let's find out... now![/color]";
 			message += this.status();
 			messages[1] = message;
 		}
@@ -272,45 +275,65 @@ function Combate() {
 			}
 			if (damage <= 0) { damage = 1; }
 			
-			//if (score !== undefined) { if (!isNaN(score)) { console.log("Score: "+score); damage += Math.floor(score/20); } }
+			if (score !== undefined) { if (!isNaN(score)) { damage += Math.floor(score/20); console.log("Score in combat: "+Math.floor(score/20)); } }
 			console.log(atacante.name+"("+origin+") ataque: "+atacante[atkStat]+"+("+defensor[addStat]+"), "+defensor.name+"("+destiny+") defensa: "+defensa+", diferencia: " + (ataque - defensa) + ", dado: " + dado + ", daño: " + damage+"("+damage0+")");
 			if (isSextoy) { origin1 = atacante.weapon.name+" ("+origin1+")"; }
 			
 			//APRIL'S FOOL JOKE
 			//let fool = ","+Math.floor(Math.random()*10).toString()+Math.floor(Math.random()*10).toString()+Math.floor(Math.random()*10).toString();
 			let fool = "";
-			var message = "\n"+icon+"[color=pink][b]" + atacante.stageName + "[/b][/color] used their [color=pink][b]" + origin1 + "[/b][/color] to "+this.mode[0]+" [color=pink][b]" + defensor.stageName + "'s " + destiny1 + "[/b][/color], "+this.mode[1]+" [color="+this.mode[3]+"][b]" + damage +fool+ " "+this.mode[2]+" points![/b][/color] "+comment(damage);
+			//"\n"
+			var message = icon + " [color=pink][b]" + atacante.stageName + "[/b][/color] used their [color=pink][b]" + origin1 + "[/b][/color] to "+this.mode[0]+" [color=pink][b]" + defensor.stageName + "'s " + destiny1 + "[/b][/color], "+this.mode[1]+" [color="+this.mode[3]+"][b]" + damage +fool+ " "+this.mode[2]+" points![/b][/color] "+comment(damage);
 			if (dado == 14) { message += " [color=yellow][b](Critical hit~!)[/b][/color] Yeowch!"; }
 			if (this.teamsf == false) {
-				if (defensor.removeHP(damage)) {
-					if (Math.ceil(Math.random()*2) == 1 || !(!skipturn && letra != "me") || this.finisher || this.gender != "") {
-					//Normal
-					message += "\n" + atacante.stageName + " made " + defensor.stageName + " "+this.mode[4]+"! They both win $5.00, kinda anti-climactic if you ask me. I mean, why does the loser still get $5.00? Ah well.";
-					if (this.finisher) { message += " [color=red][b]"+this.mode[6]+"[/b][/color]"; }
-					if (!skipturn && letra != "me") { this.nextActor(); }
-					message += this.status();
-					message += "\n[color=gray]════════════════ ⭐ [color=purple]Combat ended[/color] ⭐ ════════════════[/color]\n";
-					this.started = false;
-					this.finisher = false;
+				if (recent_players[defensor.name] != null) {
+					if (Date.now() - recent_players_time[defensor.name] < 900000) {
+						recent_players[defensor.name] = defensor.HP;
+						recent_players_time[defensor.name] = Date.now();
 					} else {
-					//Smutality?
-					message += "\n" + atacante.stageName + " has " + defensor.stageName + " in a very weakened state! [color=red][b]FINISH THEM[/b][/color] ("+atacante.stageName+" has an extra turn)";
-					this.finisher = true;
-					crit = true;
+						recent_players[defensor.name] = null;
+						recent_players_time[defensor.name] = null;
+					}
+				}
+				if (defensor.removeHP(damage)) {
+					if (!statusSkip) {
+						if (Math.ceil(Math.random()*2) == 1 || !(!skipturn && letra != "me") || this.finisher || this.gender != "") {
+						//Normal
+						message += "\n" + atacante.stageName + " made " + defensor.stageName + " "+this.mode[4]+"! They both win $5.00, kinda anti-climactic if you ask me. I mean, why does the loser still get $5.00? Ah well.";
+						if (this.finisher) { message += " [color=red][b]"+this.mode[6]+"[/b][/color]"; }
+						if (!skipturn && letra != "me") { this.nextActor(); }
+						message += this.status();
+						message += "\n[color=cyan]════════════════ ⭐ [color=purple]Combat ended[/color] ⭐ ════════════════[/color]\n";
+						this.started = false;
+						this.finisher = false;
+						} else {
+						//Smutality?
+						message += "\n" + atacante.stageName + " has " + defensor.stageName + " in a very weakened state! [color=red][b]FINISH THEM[/b][/color] ("+atacante.stageName+" has an extra turn)";
+						this.finisher = true;
+						crit = true;
+						}
+					} else {
+						message += "\n[color=cyan]" + atacante.stageName + " made " + defensor.stageName + " "+this.mode[4]+"![/color]";
+						recent_players[defensor.name] = null;
+						recent_players_time[defensor.name] = null;
 					}
 				} else {
 					if (!skipturn) { this.nextActor(); }
 					if (!statusSkip) { message += this.status(); } //****************************************************************************************************************************************************************
+					else {
+						recent_players[defensor.name] = null;
+						recent_players_time[defensor.name] = null;
+					}
 				}
 			} else {
 				if (defensor.removeHP(damage)) {
-					message += "\n[color=gray]" + atacante.stageName + " made " + defensor.stageName + " "+this.mode[4]+"![/color]";
+					message += "\n[color=cyan]" + atacante.stageName + " made " + defensor.stageName + " "+this.mode[4]+"![/color]";
 				}
 				this.nextActor();
 				message += this.status();
 				if (this.checkVictory() != "") { //checkar si un equipo esta totalmente muerto
-					message += "\n[color=gray]Team [color="+this.checkVictory()+"]"+this.checkVictory()+"[/color] wins! Everyone gets $5.00, thank you for participating.[/color]";
-					message += "\n[color=gray]════════════════ ⭐ [color=purple]Combat ended[/color] ⭐ ════════════════[/color]\n";
+					message += "\n[color=cyan]Team [color="+this.checkVictory()+"]"+this.checkVictory()+"[/color] wins! Everyone gets $5.00, thank you for participating.[/color]";
+					message += "\n[color=cyan]════════════════ ⭐ [color=purple]Combat ended[/color] ⭐ ════════════════[/color]\n";
 					this.started = false;
 				}
 			}
@@ -343,7 +366,7 @@ function Combate() {
 				message += " They both win $5.00, kinda anti-climactic if you ask me. I mean, why does the loser still get $5.00? Ah well.";
 				this.nextActor();
 				message += this.status();
-				message += "\n[color=gray]════════════════ ⭐ [color=purple]Combat ended[/color] ⭐ ════════════════[/color]\n";
+				message += "\n[color=cyan]════════════════ ⭐ [color=purple]Combat ended[/color] ⭐ ════════════════[/color]\n";
 				this.started = false;
 				return message;
 			}
@@ -365,7 +388,7 @@ function Combate() {
 		}
 		if (atacante.armor.id == 0 && atacante.weapon.id == 100 && atacante.item.id == 200) { return "You're not wearing any outfit to strip."; }
 		atacante.stripMe();
-		var message = "\n"+icon+"[color=gray]" + atacante.stageName + " stripped their own outfit! Ooh, sexy! It's still their turn![/color]";
+		var message = "\n"+icon+"[color=cyan]" + atacante.stageName + " stripped their own outfit! Ooh, sexy! It's still their turn![/color]";
 		//this.nextActor();
 		message += this.status();
 		return message;
@@ -390,10 +413,10 @@ function Combate() {
 			defensor.use2(res[1]);
 			if (defensor.HP <= 0) {
 				defensor.HP = 0;
-				message += "\n[color=gray]" + atacante.stageName + " made " + defensor.stageName + " "+this.mode[4]+"! They both win $5.00, kinda anti-climactic if you ask me. I mean, why does the loser still get $5.00? Ah well.[/color]";
+				message += "\n[color=cyan]" + atacante.stageName + " made " + defensor.stageName + " "+this.mode[4]+"! They both win $5.00, kinda anti-climactic if you ask me. I mean, why does the loser still get $5.00? Ah well.[/color]";
 				if (letra == "meow to meow") { this.nextActor(); }
 				message += this.status();
-				message += "\n[color=gray]════════════════ ⭐ [color=purple]Combat ended[/color] ⭐ ════════════════[/color]\n";
+				message += "\n[color=cyan]════════════════ ⭐ [color=purple]Combat ended[/color] ⭐ ════════════════[/color]\n";
 				this.started = false;
 			} else {
 				this.nextActor();
@@ -451,7 +474,7 @@ function Combate() {
 			var hoja = "\n";
 			//bloque de texto que genera el estado del combate
 			if (this.started) {
-				hoja += "[color=gray]═════════════════ ⭐ [color=purple]"+this.mode[5]+" ring[/color] ⭐ ═════════════════\n";
+				hoja += "[color=cyan]═════════════════ ⭐ [color=purple]"+this.mode[5]+" ring[/color] ⭐ ═════════════════\n";
 				hoja += " " + hpBarL(this.actores[0].HP,this.actores[0].maxHP) + " ⭐ [color=purple]VS[/color] ⭐ " +  hpBarR(this.actores[1].HP,this.actores[1].maxHP) + "\n";
 				hoja += "► [icon]" + this.actores[0].name + "[/icon]                                                                  [icon]" + this.actores[1].name + "[/icon]\n";
 				
@@ -459,17 +482,17 @@ function Combate() {
 				
 			} else {
 				if (this.actores.length > 0) {
-					hoja += "[color=gray]════════════════ ⭐ [color=purple]"+this.mode[5]+" ring[/color] ⭐ ════════════════\n";
+					hoja += "[color=cyan]════════════════ ⭐ [color=purple]"+this.mode[5]+" ring[/color] ⭐ ════════════════\n";
 					hoja += "          [icon]" + this.actores[0].name + "[/icon] Is waiting for a challenger! Don't keep 'em waiting![/color]\n";
 				} else {
-					hoja += "[color=gray]The ring is empty![/color]";
+					hoja += "[color=cyan]The ring is empty![/color]";
 				}
 			}
 			return hoja;
 		} else {
 			var hoja = "\n";
 			//bloque de texto que genera el estado del combate en equipos
-			hoja += "[color=gray]═════════════════ ⭐ [color=purple]"+this.mode[5]+" ring[/color] ⭐ ═════════════════\n";
+			hoja += "[color=cyan]═════════════════ ⭐ [color=purple]"+this.mode[5]+" ring[/color] ⭐ ═════════════════\n";
 			if (this.red.length >= 1 && this.blue.length >= 1) {
 				hoja += "[color=red]"+this.red[0].letra+"[/color] "+hpBarL(this.red[0].HP,this.red[0].maxHP)+" [color=purple]VS[/color] "+hpBarR(this.blue[0].HP,this.blue[0].maxHP)+" [color=blue]"+this.blue[0].letra+"[/color]\n";
 			} else {
@@ -513,6 +536,7 @@ function Combate() {
 		this.sMatch = false;
 		this.intervention = false;
 		this.crits = true;
+		this.even = false;
 	}
 	
 	function diceroll(crits) { console.log("crits: "+crits); console.log("crit: "+crit);

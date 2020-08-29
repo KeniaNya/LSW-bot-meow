@@ -1,0 +1,43 @@
+
+scratch?!
+
+
+Character creation
+
+Character customization
+
+Shops and item buying / equipping
+
+Combat
+
+
+------------
+
+notas:
+
+speed hace que tengas un ataque doble (el segundo ataque va al 50%) pero no es un ataque critico!
+
+nueva formula? habra que ver
+4 + 2d6 + ataque - defensa + addictions - resistances
+
+
+crit: max damage + #
+
+Tutorial!
+- Bienvenida y explicación (con imagenes?)
+- Questionario para poner los stats
+- Escojer categoria de peso
+- Preguntar si se desea utilizar un stage name
+- Explicar que los items se pueden renombrar y preguntar si se desea renombrar alguno
+- Mostrar la hoja y preguntar si se desea tomar un combate de prueba
+
+Skills, los obtienes al subir de nivel
+con combates ganas xp, con xp subes de nivel
+cada nivel ganas skill point que te sirve para comprar skills
+estos se guardan como string nadamas, ya durante el combate comprobamos cual de todos los skills tienes comprado
+y usamos una clase separada para ver los efectos del skill... XD
+
+
+
+
+guardar en la base de datos el estado del combate?! podria ser... habria que hacer la prueba...
