@@ -989,11 +989,11 @@ ${icons[item.element]}${icons[item.element2]}${colors[item.element]} ${item.name
 
 	//////////////////////////////////////////////////
 	//                     BATTLE                   //
-	//#region/////////////////////////////////////////////
+	//#region ////////////////////////////////////////
 
 	function battleLogic(data, battle, spellName, target, normal) {
 
-		//#region/////////////////// Pre-attack stuff (attacker, defendant, spellCasted, mana, initial text)
+		//#region //////////////////////////////////////// Pre-attack stuff (attacker, defendant, spellCasted, mana, initial text)
 		if (normal) { battle.characters = JSON.parse(battle.characters); }
 		let attacker = battle.characters[battle.turn];
 		let defendant = ""; let ko = ""; let critical = false; let fumble = false;
@@ -1024,7 +1024,7 @@ ${icons[item.element]}${icons[item.element2]}${colors[item.element]} ${item.name
 		let flavorText = `${cyan+attacker.name+c} uses ${blue+spellCasted.manaCost} mana${c} to cast ${colors[spellCasted.element]+spellCasted.name+c+c} [i](${spellCasted.description})[/i]${green} at ${cyan+defendant.name+c} `;
 		//#endregion
 
-		//#region/////////////////// Spell types (damage, debuff, heal, buff)
+		//#region //////////////////////////////////////// Spell types (damage, debuff, heal, buff)
 
 		//////////////////////// Damage type of spell
 		if (spellCasted.type == "damage") {
@@ -1323,7 +1323,7 @@ ${c}[sup](Healing dice: ${spellCasted.numberOfAttacks}d${spellCasted.dice+attack
 
 	}
 
-	////////////////////////////////////////////////////////////// Battle Logic //////////////////////////////////////////////////////////////
+	//////////////////////////////////////// Battle Logic ////////////////////////////////////////
 
 	cmdHandler.ready = function(args, data) {
 		let key = channel;
@@ -1510,12 +1510,6 @@ ${c}[sup](Healing dice: ${spellCasted.numberOfAttacks}d${spellCasted.dice+attack
 		return "[color=black]"+"█".repeat(15-fill)+color+"█".repeat(fill)+"[/color]";
 	}
 
-	function mpBarL(size, maxsize) {
-		var fill = Math.ceil(size*10/maxsize);
-		var color = "[/color][color=blue]";
-		return "[color=black]"+"█".repeat(10-fill)+color+"█".repeat(fill)+"[/color]";
-	}
-
 	cmdHandler.cast = function(args, data) {
 		let key = channel;
 		if (args == "") { send(data, red+"You have to type the name of your spell"+c); return 0; }
@@ -1619,7 +1613,7 @@ ${c}[sup](Healing dice: ${spellCasted.numberOfAttacks}d${spellCasted.dice+attack
 	//////////////////////////////////////////////////
 	//                     OTHERS                   //
 	//      removeBbcode, getUser, s, listener      //
-	//#region/////////////////////////////////////////////
+	//#region ////////////////////////////////////////
 
 	function removeBbcode (args) {
 		if (args == "" || args === undefined) { return args; }
