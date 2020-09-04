@@ -335,7 +335,7 @@ module.exports = function (parent, chanName) {
 	}
 	
 	cmdHandler.bondageattack = function (args, data) {
-		if (data.character != "Kenia Nya") { return 0; }
+		if (!fChatLibInstance.roomMods[channel].includes(data.character)) { return 0; }
 		fChatLibInstance.sendMessage(y + data.character + " walks up to the bondage equipment and pushes a button...[/color]", channel);
 		fChatLibInstance.sendMessage(r+"The machine activates! " + args + " is now stripped nude and bound in heavy ropes![/color]", channel);
 	}

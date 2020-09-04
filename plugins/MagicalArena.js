@@ -18,8 +18,6 @@ Sleep, you can't take actions, you have to !pass to try to recover, but you inst
 Confusion, you have a chance of your spells backfiring back at you (increased fumble range, it could be 1, 2, 3, etc. increasing the spell cost)
 Charm, defendant receives more lust from the opponent's attacks (set turn duration) BUT they can try to !struggle and if they pass the check, they instantly recover, if not, they receive a huge lust hit in return (and recover)
 
-
-
 potions/alchemy, classes, summons, npcs?
 locations!!!
 Mana surge and mana restriction/drain
@@ -326,7 +324,9 @@ ${yellow}Example: !name Magic missle, A small light orb that hits no matter what
 				);
 			}
 		} else {
-			send(data, prettySpellCrafting(inCrafting[data.character].spell));
+			send(data,
+`${prettySpellCrafting(inCrafting[data.character].spell)}${cyan}Remember to use ${yellow}!finishspell${c} to save your changes!${c}`
+			);
 		}
 	}
 
@@ -355,7 +355,9 @@ ${yellow}Examples: !element water, !elements fire and air ${c}
 
 			if (type == "edit") { selectedSpell.oldName = selectedSpell.name; }
 			inCrafting[data.character] = {spell: JSON.parse(JSON.stringify(selectedSpell)), craftingSpell: true, craftingItem: false};
-			send(data, prettySpellCrafting(selectedSpell));
+			send(data,
+`${prettySpellCrafting(inCrafting[data.character].spell)}${cyan}Remember to use ${yellow}!finishspell${c} to save your changes!${c}`
+				);
 		});
 	}
 
@@ -391,7 +393,9 @@ ${cyan}You can also buff/debuff your or your opponent's defense, decreasing/incr
 ${yellow}Example: !debuff 2 to defense (Mana cost 20)${c}`
 				);
 			} else {
-				send(data, prettySpellCrafting(inCrafting[data.character].spell));
+				send(data, 
+`${prettySpellCrafting(inCrafting[data.character].spell)}${cyan}Remember to use ${yellow}!finishspell${c} to save your changes!${c}`
+					);
 			}
 		} else {
 			if (inCrafting[data.character].item.element == "none") { tutorial = true; }
@@ -403,7 +407,9 @@ ${yellow}Example: !debuff 2 to defense (Mana cost 20)${c}`
 ${yellow}Example: !effects 3 to int and 3 to agi (point cost 6), !effects 2 to con and 2 to agi and 2 to int (point cost 6)${c}`
 				);
 			} else {
-				send(data, prettyItemCrafting(inCrafting[data.character].item));
+				send(data,
+`${prettyItemCrafting(inCrafting[data.character].item)}${cyan}Remember to use ${yellow}!finishitem${c} to save your changes!${c}`
+					);
 			}
 		}
 	}
@@ -489,7 +495,8 @@ ${yellow}Example: !effects 3 to int and 3 to agi (point cost 6), !effects 2 to c
 ${yellow}Example: !name Magic missle, A small light orb that hits no matter what!${c}`
 			);
 		} else {
-			send(data, prettySpellCrafting(inCrafting[data.character].spell));
+			send(data, 
+`${prettySpellCrafting(inCrafting[data.character].spell)}${cyan}Remember to use ${yellow}!finishspell${c} to save your changes!${c}`						);
 		}
 	}
 
@@ -507,7 +514,9 @@ ${yellow}Example: !name Magic missle, A small light orb that hits no matter what
 `${prettySpellCrafting(inCrafting[data.character].spell)}${cyan}Yay! We're done! That was fun, wasn't it? Now, you can change any step of your spell using any of the previous commands ${c}(!element, !elements, !damage, !heal, !buff, !debuff, !hit, !name). ${cyan}When you're happy about your choices, you can say ${yellow}!finishspell${c} to, well, finish the spell creation!${c}`
 				);
 			} else {
-				send(data, prettySpellCrafting(inCrafting[data.character].spell));
+				send(data,
+`${prettySpellCrafting(inCrafting[data.character].spell)}${cyan}Remember to use ${yellow}!finishspell${c} to save your changes!${c}`
+				);
 			}
 		} else {
 			if (inCrafting[data.character].item.name == "Unnamed Item") { tutorial = true; }
@@ -520,7 +529,9 @@ ${yellow}Example: !name Magic missle, A small light orb that hits no matter what
 `${prettyItemCrafting(inCrafting[data.character].item)}${cyan}Yay! We're done! That was fun, wasn't it? Now, you can change any step of your item using any of the previous commands ${c}(!elements, !effects, !name). ${cyan}When you're happy about your choices, you can say ${yellow}!finishitem${c} to, well, finish the item creation!${c}`
 				);
 			} else {
-				send(data, prettyItemCrafting(inCrafting[data.character].item));
+				send(data,
+`${prettyItemCrafting(inCrafting[data.character].item)}${cyan}Remember to use ${yellow}!finishitem${c} to save your changes!${c}`
+					);
 			}
 		}
 	}
@@ -684,7 +695,9 @@ ${yellow}Examples: !elements fire and air ${c}(Note: You can change any of the c
 			if (selectedItem == "") { send(data, red+"The item "+args+" wasn't found on your inventory or equipped items!"); return 0; }
 			if (type == "edit") {selectedItem.oldName = selectedItem.name; }
 			inCrafting[data.character] = {item: JSON.parse(JSON.stringify(selectedItem)), craftingSpell: false, craftingItem: true};
-			send(data, prettyItemCrafting(selectedItem));
+			send(data, 
+`${prettyItemCrafting(inCrafting[data.character].item)}${cyan}Remember to use ${yellow}!finishitem${c} to save your changes!${c}`
+				);
 		});
 	}
 
@@ -713,7 +726,9 @@ ${yellow}Examples: !elements fire and air ${c}(Note: You can change any of the c
 ${yellow}Example: !name White robe, A robe that makes it's wearer smarter!${c}`
 			);
 		} else {
-			send(data, prettyItemCrafting(inCrafting[data.character].item));
+			send(data,
+`${prettyItemCrafting(inCrafting[data.character].item)}${cyan}Remember to use ${yellow}!finishitem${c} to save your changes!${c}`
+				);
 		}
 	}
 
